@@ -14,17 +14,14 @@ Sum::Sum()
 
 }
 
-Sum::Calculate(int FirstNumber[], int SecondNumber[])
+void Sum::Calculate(int FirstNumber[], int SecondNumber[])
 {
         int FirstNumberLength = sizeof(FirstNumber);
         int SecondNumberLength = sizeof(SecondNumber);
         int Carry = 0;
 	int i = 0;
-        int dim =  FirstNumberLength + SecondNumberLength;
-        int[] SumResult = new int[dim];
+        int SumResult[100];
         int Aux;
-        int FirstNumberLength = FirstNumber.length;
-        int SecondNumberLength = SecondNumber.length;
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
 		SumResult[i] = FirstNumber[i] + SecondNumber[i] + Carry;
@@ -65,7 +62,7 @@ Sum::Calculate(int FirstNumber[], int SecondNumber[])
 		i++;
 	}
 	
-	SumLength = i;
+	int SumLength = i;
 
         if(Carry != 0)
         {
@@ -80,5 +77,6 @@ Sum::Calculate(int FirstNumber[], int SecondNumber[])
 		SumResult[SumLength - i - 1] = Aux;
 	}
 
+        Result = SumResult;
 }
 

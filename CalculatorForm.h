@@ -20,7 +20,9 @@ __published:	// IDE-managed Components
         TButton *btnDivide;
         TButton *btnInverse;
         TButton *btnSquareRoot;
+        TButton *btnExit;
         void __fastcall btnAddClick(TObject *Sender);
+        void __fastcall btnExitClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TfCalculator(TComponent* Owner);

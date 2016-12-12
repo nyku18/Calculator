@@ -11,8 +11,8 @@ class Operation
                 int SecondNumber[];
                 int Result[];
                 Operation();
-                int Calculate(int FirstNumber[], int SecondNumber[]);
-                ~Operation();
+                void Calculate(int FirstNumber[], int SecondNumber[]);
+                //~Operation();
 };
 
 

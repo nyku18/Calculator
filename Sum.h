@@ -10,8 +10,8 @@ class Sum : public Operation
 {
         public:
                 Sum();
-                int Calculate(int FirstNumber[], int SecondNumber[]);
-                ~Sum();
+                void Calculate(int FirstNumber[], int SecondNumber[]);
+                //~Sum();
 };
 
 //---------------------------------------------------------------------------

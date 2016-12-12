@@ -4,7 +4,7 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Calculator.exe"/>
-    <OBJFILES value="Calculator.obj CalculatorForm.obj Operation.obj Sum.obj"/>
+    <OBJFILES value="Calculator.obj CalculatorForm.obj"/>
     <RESFILES value="Calculator.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -56,8 +56,6 @@
       <FILE FILENAME="Calculator.res" FORMNAME="" UNITNAME="Calculator.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Calculator.cpp" FORMNAME="" UNITNAME="Calculator" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="CalculatorForm.cpp" FORMNAME="fCalculator" UNITNAME="CalculatorForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Operation.cpp" FORMNAME="" UNITNAME="Operation.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Sum.cpp" FORMNAME="" UNITNAME="Sum.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
