@@ -1,20 +1,18 @@
 //---------------------------------------------------------------------------
 
-#ifndef OperationH
-#define OperationH
+#ifndef SumH
+#define SumH
+
+#include <Operation.h>
 //---------------------------------------------------------------------------
 
-class Operation
+class Sum : public Operation
 {
         public:
-                int FirstNumber[];
-                int SecondNumber[];
-                int Result[];
-                Operation();
+                Sum();
                 int Calculate(int FirstNumber[], int SecondNumber[]);
-                ~Operation();
+                ~Sum();
 };
-
 
 //---------------------------------------------------------------------------
 #endif
