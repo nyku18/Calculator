@@ -18,11 +18,16 @@ Inverted::Inverted()
 
 int Inverted::Calculate()
 {
+        int DotPosition = 0;
+
         Quotient InvertedResult = Quotient();
 
         InvertedResult.FirstNumber = FirstNumber;
         InvertedResult.SecondNumber = SecondNumber;
 
-        InvertedResult.Calculate();
+        DotPosition = InvertedResult.Calculate();
+
+        Result = InvertedResult.Result;
+        return DotPosition;
 
 }

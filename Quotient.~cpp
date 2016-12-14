@@ -62,7 +62,7 @@ int Quotient::Calculate()
         {
                 DotPosition = QuotientLength;
                 Result.NumberSign = QuotientLength;
-                int SecondNumberBigger  = 1;
+                SecondNumberBigger  = 1;
         }
 
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
@@ -161,7 +161,7 @@ int Quotient::Calculate()
         //dupa virgula
 
         DotPosition = QuotientLength;
-        if(SecondNumberBigger  == 1)
+        if(SecondNumberBigger == 1)
         {
                 DotPosition = 1;
         }

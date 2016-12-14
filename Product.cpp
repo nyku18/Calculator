@@ -22,6 +22,8 @@ void Product::Calculate()
         int ProductMatrix[100][100];
         int Aux;
         int Equal;
+        int OverFlow;
+        int CarryOver;
 
         Equal = Compare();
 
@@ -33,9 +35,9 @@ void Product::Calculate()
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
         int SecondNumberLength = SecondNumber.NumberDigitsLength;
 
-        for(i = 0; i < SecondNumberLength ; i++)
+        for(i = 0; i < 100 ; i++)
 	{
-		for(j = 0; j < FirstNumberLength ; j++)
+		for(j = 0; j < 100 ; j++)
 		{
                         ProductMatrix[i][j] = 0;
                 }
@@ -55,23 +57,42 @@ void Product::Calculate()
 		}
 		if(Carry != 0)
 		{
-			ProductMatrix[i][j+1] = Carry;
+			ProductMatrix[i][i+j] = Carry;
+                        Carry = 0;
 		}
 	}
 
 	Carry = 0;
-	for(i = 0; i <  FirstNumberLength + SecondNumberLength - 1; i++)
+        OverFlow = 0;
+        CarryOver = 0;
+	for(i = 0; i <  FirstNumberLength + SecondNumberLength; i++)
 	{
-		Result.NumberDigits[i] = 0;
+                OverFlow = 0;
+                Result.NumberDigits[i] = 0;    
 		for(j = 0; j < SecondNumberLength ; j++)
 		{
-			Result.NumberDigits[i] = Result.NumberDigits[i] + ProductMatrix[j][i] + Carry;
+			Result.NumberDigits[i] = Result.NumberDigits[i] + ProductMatrix[j][i] + Carry + CarryOver;
+                        if(CarryOver == 1)
+                        {
+                                CarryOver = 0;
+                        }
 			Carry = 0;
 			if(Result.NumberDigits[i] >= 10)
 			{
 				Carry = 1;
 				Result.NumberDigits[i] = Result.NumberDigits[i] % 10;
+                                OverFlow = 1;
+                                
 			}
+                        if(OverFlow == 1)
+                        {
+                                Carry = 0;
+                                if(j == SecondNumberLength - 1)
+                                {
+                                        CarryOver = 1;
+                                        break;
+                                }
+                        }
 		}
 	}
 

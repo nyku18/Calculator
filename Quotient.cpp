@@ -6,7 +6,6 @@
 #include "Quotient.h"
 #include <math.h>
 
-#include "Sum.h"
 //---------------------------------------------------------------------------
 
 #pragma package(smart_init)

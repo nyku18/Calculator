@@ -27,6 +27,7 @@ __published:	// IDE-managed Components
         void __fastcall btbMultiplyClick(TObject *Sender);
         void __fastcall btnDivideClick(TObject *Sender);
         void __fastcall btnInverseClick(TObject *Sender);
+        void __fastcall btnSquareRootClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TfCalculator(TComponent* Owner);

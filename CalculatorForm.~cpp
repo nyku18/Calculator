@@ -11,6 +11,7 @@
 #include <Product.h>
 #include <Quotient.h>
 #include <Inverted.h>
+#include <Root.h>
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -133,6 +134,8 @@ void __fastcall TfCalculator::btnInverseClick(TObject *Sender)
 
         InvertedResult.SecondNumber.Overturn();
 
+        InvertedResult.FirstNumber.StringToInt("1");
+
         int DotPosition;
         DotPosition = InvertedResult.Calculate();
 
@@ -144,6 +147,21 @@ void __fastcall TfCalculator::btnInverseClick(TObject *Sender)
         }
 
         eResult->Text = InvertedResult.Result.IntToString(DotPosition);
+
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
+{
+           String SFirstNumber = eFirstNumber->Text;
+           //eSecondNumber->Text = "sdfy";
+           
+           Root RootResult = Root();
+           RootResult.FirstNumber.StringToInt(SFirstNumber);
+           RootResult.FirstNumber.Overturn();
+           int DotPosition;
+           DotPosition = RootResult.Calculate();
 
 }
 //---------------------------------------------------------------------------

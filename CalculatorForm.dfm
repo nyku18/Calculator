@@ -86,6 +86,7 @@ object fCalculator: TfCalculator
     Height = 33
     Caption = 'SQUARE ROOT'
     TabOrder = 8
+    OnClick = btnSquareRootClick
   end
   object btnExit: TButton
     Left = 536
