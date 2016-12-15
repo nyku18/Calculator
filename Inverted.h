@@ -3,7 +3,7 @@
 #ifndef InvertedH
 #define InvertedH
 
-#include <Operation.h>
+#include "Operation.h"
 //---------------------------------------------------------------------------
 
 class Inverted : public Operation

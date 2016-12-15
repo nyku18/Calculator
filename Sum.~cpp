@@ -21,6 +21,7 @@ void Sum::Calculate()
         int Aux;
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
         int SecondNumberLength = SecondNumber.NumberDigitsLength;
+        
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
                 Result.NumberDigits[i] = FirstNumber.NumberDigits[i] + SecondNumber.NumberDigits[i] + Carry;

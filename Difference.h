@@ -3,7 +3,7 @@
 #ifndef DifferenceH
 #define DifferenceH
 
-#include <Operation.h>
+#include "Operation.h"
 //---------------------------------------------------------------------------
 
 class Difference : public Operation

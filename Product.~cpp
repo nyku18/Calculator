@@ -87,7 +87,6 @@ void Product::Calculate()
                         if(OverFlow == 1)
                         {
                                 Carry = 0;
-
                                 if(j == SecondNumberLength - 1)
                                 {
                                         CarryOver = 1;

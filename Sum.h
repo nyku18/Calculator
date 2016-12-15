@@ -3,7 +3,7 @@
 #ifndef SumH
 #define SumH
 
-#include <Operation.h>
+#include "Operation.h"
 //---------------------------------------------------------------------------
 
 class Sum : public Operation

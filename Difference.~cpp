@@ -20,15 +20,13 @@ void Difference::Calculate()
         int Carry = 0;
 	int i = 0;
         int Aux;
-        int FirstNumberLength =  FirstNumber.NumberDigitsLength;
-        int SecondNumberLength = SecondNumber.NumberDigitsLength;
         int Equal;
 
         Equal = Compare();
 
         if(Equal == 0)
         {
-                for(int i = 0; i <  FirstNumberLength; i++)
+                for(int i = 0; i <  FirstNumber.NumberDigitsLength; i++)
                 {
                         Result.NumberDigits[i] = 0;
                 }
@@ -43,6 +41,9 @@ void Difference::Calculate()
                         Swap();
                 }
         }
+
+        int FirstNumberLength =  FirstNumber.NumberDigitsLength;
+        int SecondNumberLength = SecondNumber.NumberDigitsLength;
 
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{

@@ -3,7 +3,7 @@
 #ifndef QuotientH
 #define QuotientH
 
-#include <Operation.h>
+#include "Operation.h"
 //---------------------------------------------------------------------------
 
 class Quotient : public Operation

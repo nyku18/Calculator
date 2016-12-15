@@ -20,36 +20,31 @@ Root::Root()
 
 int Root::Calculate()
 {
+        int Position;
         Number Reminder = Number();
         Number TwoAsNumber = Number();   // numarul 2
         TwoAsNumber.StringToInt("2");
 
 
-        Product ProductResult = Product();
         Sum SumResult = Sum();
         Difference DifferenceResult = Difference();
+        Product ProductResult = Product();
 
         if(FirstNumber.NumberDigitsLength % 2 == 1)
         {
                 FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength] = 0;
                 FirstNumber.NumberDigitsLength++;
+                Position = 2;
         }
 
         Result.NumberDigitsLength++;
         Result.NumberDigits[0] = sqrt(FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength-1] * 10 + FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength-2]);
         Reminder = Result;
-        // reminder * 2
 
+        // reminder * 2
         ProductResult.FirstNumber = Reminder;
         ProductResult.SecondNumber = TwoAsNumber;
         ProductResult.Calculate();
 
-        int a = 3;
-        //Result.NumberDigitsLength++;
-
-        /*for(int i = 0; i < Result.NumberDigitsLength; i++)
-        {
-                Reminder.NumberDigits[i] =
-        }    */
 
 }

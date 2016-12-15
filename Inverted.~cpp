@@ -4,7 +4,6 @@
 #pragma hdrstop
 
 #include "Inverted.h"
-
 #include "Quotient.h"
 
 //---------------------------------------------------------------------------

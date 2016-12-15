@@ -3,7 +3,7 @@
 #ifndef ProductH
 #define ProductH
 
-#include <Operation.h>
+#include "Operation.h"
 //---------------------------------------------------------------------------
 
 class Product : public Operation
