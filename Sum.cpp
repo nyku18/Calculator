@@ -14,21 +14,15 @@ Sum::Sum()
 
 }
 
-//void Sum::Calculate(int FirstNumberr[], int SecondNumberr[])
 void Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 {
-        int sizeInt = sizeof(int);
-        //int FirstNumberLength = sizeof(FirstNumber);
-        //int SecondNumberLength = sizeof(SecondNumber);
         int Carry = 0;
 	int i = 0;
         int Aux;
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
-        //int aa = FirstNumber[i];
-        //int bb = SecondNumber[i];
-        
 		Result[i] = FirstNumber[i] + SecondNumber[i] + Carry;
+                int cc = Result[i];
 		Carry = 0;
 		if(Result[i] >= 10)
 		{
@@ -70,16 +64,16 @@ void Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 
         if(Carry != 0)
         {
-                Result[SumLength + 1] = 1;
+                Result[SumLength] = 1;
                 SumLength++;
         }
 
-        /*for(i = 0; i < SumLength/2; i++)
+        for(i = 0; i < SumLength/2; i++)
 	{
 		Aux = Result[i];
 		Result[i] = Result[SumLength - i - 1];
 		Result[SumLength - i - 1] = Aux;
-	} */
+	}
 
 }
 

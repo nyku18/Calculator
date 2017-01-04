@@ -23,16 +23,16 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
         String SSecondNumber = eSecondNumber->Text;
         int FirstNumber[100];
         int SecondNumber[100];
+        int OverturnedFirstNumber[100];
+        int OverturnedSecondNumber[100];
 
         for(int i = 0; i < 100; i++)
         {
                 FirstNumber[i] = 0;
-        }
-        for(int i = 0; i < 100; i++)
-        {
                 SecondNumber[i] = 0;
+                OverturnedFirstNumber[i] = 0;
+                OverturnedSecondNumber[i] = 0;
         }
-
         
         int FirstNumberLength = strlen(SFirstNumber.c_str());
         int SecondNumberLength = strlen(SSecondNumber.c_str());
@@ -53,9 +53,18 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
                 SecondNumber[i] = CSecondNumber[i] - '0';
         }
 
+        for(i = 0; i < FirstNumberLength; i++)
+        {
+                OverturnedFirstNumber[FirstNumberLength - i - 1] = FirstNumber[i];
+        }
+        for(i = 0; i < SecondNumberLength; i++)
+        {
+                OverturnedSecondNumber[SecondNumberLength - i - 1] = SecondNumber[i];
+        }
+
         Sum SumResult;
-        memcpy(SumResult.FirstNumber, FirstNumber, sizeof(SumResult.FirstNumber));
-        memcpy(SumResult.SecondNumber, SecondNumber, sizeof(SumResult.SecondNumber));
+        memcpy(SumResult.FirstNumber, OverturnedFirstNumber, sizeof(SumResult.FirstNumber));
+        memcpy(SumResult.SecondNumber, OverturnedSecondNumber, sizeof(SumResult.SecondNumber));
 
         //SumResult.FirstNumber = FirstNumber;
         //SumResult.SecondNumber = SecondNumber;
