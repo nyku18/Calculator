@@ -14,7 +14,7 @@ Sum::Sum()
 
 }
 
-void Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
+int Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 {
         int Carry = 0;
 	int i = 0;
@@ -74,6 +74,8 @@ void Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 		Result[i] = Result[SumLength - i - 1];
 		Result[SumLength - i - 1] = Aux;
 	}
+
+        return SumLength;
 
 }
 

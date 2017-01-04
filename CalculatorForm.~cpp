@@ -21,11 +21,13 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
 {
         String SFirstNumber = eFirstNumber->Text;
         String SSecondNumber = eSecondNumber->Text;
+
         int FirstNumber[100];
         int SecondNumber[100];
         int OverturnedFirstNumber[100];
         int OverturnedSecondNumber[100];
 
+        /* poate lipsi */
         for(int i = 0; i < 100; i++)
         {
                 FirstNumber[i] = 0;
@@ -37,7 +39,7 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
         int FirstNumberLength = strlen(SFirstNumber.c_str());
         int SecondNumberLength = strlen(SSecondNumber.c_str());
 
-        char CFirstNumber[100] = "";
+        char CFirstNumber[100] = "";    /*  ="" -- initializeaza cu 0 vectorul de char-uri */
         strcpy(CFirstNumber, SFirstNumber.c_str());
         char CSecondNumber[100] = "";
         strcpy(CSecondNumber, SSecondNumber.c_str());
@@ -46,13 +48,14 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
 
         for(i = 0; i < FirstNumberLength; i++)
         {
-                FirstNumber[i] = CFirstNumber[i] - '0';
+                FirstNumber[i] = CFirstNumber[i] - '0'; /* conversie la int */
         }
         for(i = 0; i < SecondNumberLength; i++)
         {
                 SecondNumber[i] = CSecondNumber[i] - '0';
         }
 
+        /* calcul rasturnat */
         for(i = 0; i < FirstNumberLength; i++)
         {
                 OverturnedFirstNumber[FirstNumberLength - i - 1] = FirstNumber[i];
@@ -61,14 +64,17 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
         {
                 OverturnedSecondNumber[SecondNumberLength - i - 1] = SecondNumber[i];
         }
-
+ 
         Sum SumResult;
         memcpy(SumResult.FirstNumber, OverturnedFirstNumber, sizeof(SumResult.FirstNumber));
         memcpy(SumResult.SecondNumber, OverturnedSecondNumber, sizeof(SumResult.SecondNumber));
 
+        /* asta face memcpy*/
         //SumResult.FirstNumber = FirstNumber;
         //SumResult.SecondNumber = SecondNumber;
-        SumResult.Calculate(FirstNumberLength, SecondNumberLength);
+
+        int ResultLength = SumResult.Calculate(FirstNumberLength, SecondNumberLength);
+        /* afisare */
         String text = " ";
         for(i = 0; i < sizeof(SumResult.Result) - 1; i++)
         {

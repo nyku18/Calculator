@@ -10,7 +10,7 @@ class Sum : public Operation
 {
         public:
                 Sum();
-                void Calculate(int OverturnedFirstNumber, int OverturnedSecondNumber);
+                int Calculate(int FirstNumberLength, int SecondNumberLength);
                 //~Sum();
 
 };
