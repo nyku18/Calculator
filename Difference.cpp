@@ -21,15 +21,15 @@ void Difference::Calculate(int FirstNumber[], int SecondNumber[])
         int SecondNumberLength = sizeof(SecondNumber);
         int Carry = 0;
 	int i = 0;
-        int DiferenceResult[100];
+        int DifferenceResult[100];
         int Aux;
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
-                DiferenceResult[i] = FirstNumber[i] - SecondNumber[i] - Carry;
+                DifferenceResult[i] = FirstNumber[i] - SecondNumber[i] - Carry;
 		Carry = 0;
-		if(DiferenceResult[i] < 0)
+		if(DifferenceResult[i] < 0)
 		{
-			DiferenceResult[i] = 10 - abs(DiferenceResult[i] % 10);
+			DifferenceResult[i] = 10 - abs(DifferenceResult[i] % 10);
 			Carry = 1;
 		}
 		i++;
@@ -39,11 +39,11 @@ void Difference::Calculate(int FirstNumber[], int SecondNumber[])
 	
 	while(FirstNumberLength != 0)
 	{
-		DiferenceResult[i] = FirstNumber[i] - Carry;
+		DifferenceResult[i] = FirstNumber[i] - Carry;
 		Carry = 0;
-		if(DiferenceResult[i] < 0)
+		if(DifferenceResult[i] < 0)
 		{
-			DiferenceResult[i] = 10 - abs(DiferenceResult[i] % 10);
+			DifferenceResult[i] = 10 - abs(DifferenceResult[i] % 10);
 			Carry = 1;
 		}
 		FirstNumberLength--;
@@ -52,33 +52,33 @@ void Difference::Calculate(int FirstNumber[], int SecondNumber[])
 	
 	while(SecondNumberLength != 0)
 	{
-		DiferenceResult[i] = SecondNumber[i] - Carry;
+		DifferenceResult[i] = SecondNumber[i] - Carry;
 		Carry = 0;
-		if(DiferenceResult[i] < 0)
+		if(DifferenceResult[i] < 0)
 		{
-			DiferenceResult[i] = 10 - abs(DiferenceResult[i] % 10);
+			DifferenceResult[i] = 10 - abs(DifferenceResult[i] % 10);
 			Carry = 1;
 		}
 		SecondNumberLength--;
 		i++;
 	}
 
-	int DiferenceLength = i;
+	int DifferenceLength = i;
 	
-	for(i = 0; i < DiferenceLength/2; i++)
+	for(i = 0; i < DifferenceLength/2; i++)
 	{
-		Aux = DiferenceResult[i];
-		DiferenceResult[i] = DiferenceResult[DiferenceLength - i - 1];
-		DiferenceResult[DiferenceLength - i - 1] = Aux;
+		Aux = DifferenceResult[i];
+		DifferenceResult[i] = DifferenceResult[DifferenceLength - i - 1];
+		DifferenceResult[DifferenceLength - i - 1] = Aux;
 	}
 
 	if(FirstNumberLength <= SecondNumberLength && FirstNumber[0] < SecondNumber[0])
 	{
-                DiferenceResult[0] = DiferenceResult[0] - 2 * DiferenceResult[0];
+                DifferenceResult[0] = DifferenceResult[0] - 2 * DifferenceResult[0];
 		Carry = 0;
-		for (i = DiferenceLength - 1; i >= 0; i--)
+		for (i = DifferenceLength - 1; i >= 0; i--)
 		{
-			DiferenceResult[i] = 10 - abs(DiferenceResult[i] % 10) - Carry;
+			DifferenceResult[i] = 10 - abs(DifferenceResult[i] % 10) - Carry;
 			Carry = 1;
 		}
 	}
@@ -86,25 +86,25 @@ void Difference::Calculate(int FirstNumber[], int SecondNumber[])
 	{
 		if(Carry != 0 && FirstNumber[0] <= SecondNumber[0])
 		{
-			DiferenceResult[0] = DiferenceResult[0] - 2 * DiferenceResult[0];
+			DifferenceResult[0] = DifferenceResult[0] - 2 * DifferenceResult[0];
 			Carry = 0;
-			for (i = DiferenceLength - 1; i >= 0; i--)
+			for (i = DifferenceLength - 1; i >= 0; i--)
 			{
-				DiferenceResult[i] = 10 - abs(DiferenceResult[i] % 10) - Carry;
+				DifferenceResult[i] = 10 - abs(DifferenceResult[i] % 10) - Carry;
 				Carry = 1;
 			}
 		}
 	}
 
-	while(DiferenceResult[0] == 0)
+	while(DifferenceResult[0] == 0)
 	{
-		for (i = 0; i < DiferenceLength - 1; i++)
+		for (i = 0; i < DifferenceLength - 1; i++)
 		{
-			DiferenceResult[i] = DiferenceResult[i+1];
+			DifferenceResult[i] = DifferenceResult[i+1];
 		}
-		DiferenceLength--;
+		DifferenceLength--;
 	}
 
-	//Result = DiferenceResult;
+	//Result = DifferenceResult;
 }
 
