@@ -4,7 +4,8 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Calculator.exe"/>
-    <OBJFILES value="Calculator.obj CalculatorForm.obj Operation.obj Sum.obj"/>
+    <OBJFILES value="Calculator.obj CalculatorForm.obj Operation.obj Sum.obj Product.obj 
+      Difference.obj"/>
     <RESFILES value="Calculator.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -30,13 +31,14 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="Calculator.cpp"/>
-    <INCLUDEPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot;;D:\Calculator;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot;;D:\Calculator;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="D:\FUCKULTATE\Calculator;&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot;;D:\Calculator;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="D:\FUCKULTATE\Calculator;&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot;;D:\Calculator;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot; -ID:\Calculator 
+    <IDLCFLAGS value="-ID:\FUCKULTATE\Calculator 
+      -I&quot;C:\Program Files (x86)\Borland\CBuilder6\Bin&quot; -ID:\Calculator 
       -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG -boa"/>
     <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
       -tW -tWM"/>
@@ -58,6 +60,8 @@
       <FILE FILENAME="CalculatorForm.cpp" FORMNAME="fCalculator" UNITNAME="CalculatorForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Operation.cpp" FORMNAME="" UNITNAME="Operation.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Sum.cpp" FORMNAME="" UNITNAME="Sum.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Product.cpp" FORMNAME="" UNITNAME="Product" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Difference.cpp" FORMNAME="" UNITNAME="Difference" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

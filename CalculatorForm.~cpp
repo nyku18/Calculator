@@ -38,8 +38,8 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
 
         Sum SumResult;
         SumResult.Calculate(FirstNumber, SecondNumber);
-        
-        eResult->Text = SumResult.Result;
+
+        //eResult->Text = SumResult.Result;
 }
 //---------------------------------------------------------------------------
 
