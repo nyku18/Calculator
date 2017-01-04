@@ -14,21 +14,25 @@ Sum::Sum()
 
 }
 
-void Sum::Calculate(int FirstNumber[], int SecondNumber[])
+//void Sum::Calculate(int FirstNumberr[], int SecondNumberr[])
+void Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 {
-        int FirstNumberLength = sizeof(FirstNumber);
-        int SecondNumberLength = sizeof(SecondNumber);
+        int sizeInt = sizeof(int);
+        //int FirstNumberLength = sizeof(FirstNumber);
+        //int SecondNumberLength = sizeof(SecondNumber);
         int Carry = 0;
 	int i = 0;
-        int SumResult[100];
         int Aux;
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
-		SumResult[i] = FirstNumber[i] + SecondNumber[i] + Carry;
+        //int aa = FirstNumber[i];
+        //int bb = SecondNumber[i];
+        
+		Result[i] = FirstNumber[i] + SecondNumber[i] + Carry;
 		Carry = 0;
-		if(SumResult[i] >= 10)
+		if(Result[i] >= 10)
 		{
-			SumResult[i] = SumResult[i] % 10;
+			Result[i] = Result[i] % 10;
 			Carry = 1;
 		}
 		i++;
@@ -38,11 +42,11 @@ void Sum::Calculate(int FirstNumber[], int SecondNumber[])
 	
 	while(FirstNumberLength != 0)
 	{
-		SumResult[i] =  FirstNumber[i] + Carry;
+		Result[i] =  FirstNumber[i] + Carry;
 		Carry = 0;
-		if(SumResult[i] >= 10)
+		if(Result[i] >= 10)
 		{
-			SumResult[i] = SumResult[i] % 10;
+			Result[i] = Result[i] % 10;
 			Carry = 1;
 		}
 		FirstNumberLength--;
@@ -51,11 +55,11 @@ void Sum::Calculate(int FirstNumber[], int SecondNumber[])
 	
 	while(SecondNumberLength != 0)
 	{
-		SumResult[i] = SecondNumber[i] + Carry;
+		Result[i] = SecondNumber[i] + Carry;
 		Carry = 0;
-		if(SumResult[i] >= 10)
+		if(Result[i] >= 10)
 		{
-			SumResult[i] = SumResult[i] % 10;
+			Result[i] = Result[i] % 10;
 			Carry = 1;
 		}
 		SecondNumberLength--;
@@ -66,17 +70,16 @@ void Sum::Calculate(int FirstNumber[], int SecondNumber[])
 
         if(Carry != 0)
         {
-                SumResult[SumLength + 1] = 1;
+                Result[SumLength + 1] = 1;
                 SumLength++;
         }
 
-        for(i = 0; i < SumLength/2; i++)
+        /*for(i = 0; i < SumLength/2; i++)
 	{
-		Aux = SumResult[i];
-		SumResult[i] = SumResult[SumLength - i - 1];
-		SumResult[SumLength - i - 1] = Aux;
-	}
+		Aux = Result[i];
+		Result[i] = Result[SumLength - i - 1];
+		Result[SumLength - i - 1] = Aux;
+	} */
 
-        Result = SumResult;
 }
 
