@@ -13,7 +13,7 @@ class Operation
                 Number SecondNumber;
                 Number Result;
                 Operation();
-                int Calculate();
+                void Calculate();
 };
 
 //---------------------------------------------------------------------------

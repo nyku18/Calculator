@@ -62,3 +62,16 @@ void Number::Overturn()
         memcpy(NumberDigits, OverturnedNumberDigits, sizeof(NumberDigits));
         //return OverturnedNumberDigits;
 }
+
+String Number::IntToString()
+{
+        int i;
+
+        String SNumberDigits = "";
+        for(i = 0; i < NumberDigitsLength; i++)
+        {
+                SNumberDigits += NumberDigits[i];
+        }
+
+        return SNumberDigits;
+}

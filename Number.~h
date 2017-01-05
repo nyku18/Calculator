@@ -12,9 +12,11 @@ class Number
 
                 int NumberDigits[100];
                 int NumberDigitsLength;
+                
                 Number();
                 void StringToInt(String SNumberDigits);
-                int* Overturn();
+                void Overturn();
+                String IntToString();
         private:
                 char* StringToChar(String SNumberDigits);
                 int* CharToInt(char* CNumberDigits);
