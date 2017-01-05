@@ -4,9 +4,10 @@
 #pragma hdrstop
 
 #include "CalculatorForm.h"
-#include <Sum.h>
 #include <string.h>
 #include <Number.h>
+#include <Sum.h>
+#include <Difference.h>
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -33,14 +34,27 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
 
         SumResult.Calculate();
 
-        int i;
+        eResult->Text = SumResult.Result.IntToString();
 
-        String text = " ";
-        for(i = 0; i < SumResult.Result.NumberDigitsLength; i++)
-        {
-                text += SumResult.Result.NumberDigits[i];
-        }
-        eResult->Text = text;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfCalculator::btnSubstractClick(TObject *Sender)
+{
+        String SFirstNumber = eFirstNumber->Text;
+        String SSecondNumber = eSecondNumber->Text;
+
+        Difference DifferenceResult = Difference();
+
+        DifferenceResult.FirstNumber.StringToInt(SFirstNumber);
+        DifferenceResult.SecondNumber.StringToInt(SSecondNumber);
+
+        DifferenceResult.FirstNumber.Overturn();
+        DifferenceResult.SecondNumber.Overturn();
+
+        DifferenceResult.Calculate();
+
+        eResult->Text = DifferenceResult.Result.IntToString();
 
 }
 //---------------------------------------------------------------------------
@@ -50,4 +64,6 @@ void __fastcall TfCalculator::btnExitClick(TObject *Sender)
         exit(0);        
 }
 //---------------------------------------------------------------------------
+
+
 

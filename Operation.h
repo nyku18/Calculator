@@ -14,6 +14,8 @@ class Operation
                 Number Result;
                 Operation();
                 void Calculate();
+                int Compare();
+                void Swap();
 };
 
 //---------------------------------------------------------------------------

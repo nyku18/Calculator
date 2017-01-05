@@ -10,7 +10,7 @@ class Product : public Operation
 {
         public:
                 Product();
-                int Calculate(int FirstNumberLength, int SecondNumberLength);
+                void Calculate();
 };
 
 //---------------------------------------------------------------------------

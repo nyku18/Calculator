@@ -14,13 +14,15 @@ Product::Product()
 
 }
 
-int Product::Calculate(int FirstNumberLength, int SecondNumberLength)
+void Product::Calculate()
 {
         int Carry = 0;
 	int i = 0;
         int j = 0;
         int ProductMatrix[100][100];
         int Aux;
+        int FirstNumberLength =  FirstNumber.NumberDigitsLength;
+        int SecondNumberLength = SecondNumber.NumberDigitsLength;
         for(i = 0; i < SecondNumberLength ; i++)
 	{
 		for(j = 0; j < FirstNumberLength ; j++)
@@ -86,5 +88,6 @@ int Product::Calculate(int FirstNumberLength, int SecondNumberLength)
 		Result.NumberDigits[ProductLength - i - 1] = Aux;
 	}
 
-        return ProductLength;
+        Result.NumberDigitsLength = ProductLength;
+
 }

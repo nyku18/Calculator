@@ -1,6 +1,6 @@
 object fCalculator: TfCalculator
-  Left = 980
-  Top = 206
+  Left = 674
+  Top = 243
   Width = 766
   Height = 338
   Caption = 'Calculator'
@@ -50,6 +50,7 @@ object fCalculator: TfCalculator
     Height = 33
     Caption = 'SUBSTRACT'
     TabOrder = 4
+    OnClick = btnSubstractClick
   end
   object btbMultiply: TButton
     Left = 656

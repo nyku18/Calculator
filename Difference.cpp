@@ -15,18 +15,41 @@ Difference::Difference()
 
 }
 
-int Difference::Calculate(int FirstNumberLength, int SecondNumberLength)
+void Difference::Calculate()
 {
         int Carry = 0;
 	int i = 0;
         int Aux;
+        int FirstNumberLength =  FirstNumber.NumberDigitsLength;
+        int SecondNumberLength = SecondNumber.NumberDigitsLength;
+        int Equal;
+
+        Equal = Compare();
+
+        if(Equal == 0)
+        {
+                for(int i = 0; i <  FirstNumberLength; i++)
+                {
+                        Result.NumberDigits[i] = 0;
+                }
+                Result.NumberDigitsLength = 1;
+                return;
+        }
+        else
+        {
+                if(Equal == -1)
+                {
+                        Swap();
+                }
+        }
+
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
                 Result.NumberDigits[i] = FirstNumber.NumberDigits[i] - SecondNumber.NumberDigits[i] - Carry;
 		Carry = 0;
 		if(Result.NumberDigits[i] < 0)
 		{
-			Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i] % 10);
+			Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i]);
 			Carry = 1;
 		}
 		i++;
@@ -40,7 +63,7 @@ int Difference::Calculate(int FirstNumberLength, int SecondNumberLength)
 		Carry = 0;
 		if(Result.NumberDigits[i] < 0)
 		{
-			Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i] % 10);
+			Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i]);
 			Carry = 1;
 		}
 		FirstNumberLength--;
@@ -53,7 +76,7 @@ int Difference::Calculate(int FirstNumberLength, int SecondNumberLength)
 		Carry = 0;
 		if(Result.NumberDigits[i] < 0)
 		{
-			Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i] % 10);
+			Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i]);
 			Carry = 1;
 		}
 		SecondNumberLength--;
@@ -69,30 +92,6 @@ int Difference::Calculate(int FirstNumberLength, int SecondNumberLength)
 		Result.NumberDigits[DifferenceLength - i - 1] = Aux;
 	}
 
-	if(FirstNumberLength <= SecondNumberLength && FirstNumber.NumberDigits[0] < SecondNumber.NumberDigits[0])
-	{
-                Result.NumberDigits[0] = Result.NumberDigits[0] - 2 * Result.NumberDigits[0];
-		Carry = 0;
-		for (i = DifferenceLength - 1; i >= 0; i--)
-		{
-			Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i] % 10) - Carry;
-			Carry = 1;
-		}
-	}
-	else
-	{
-		if(Carry != 0 && FirstNumber.NumberDigits[0] <= SecondNumber.NumberDigits[0])
-		{
-			Result.NumberDigits[0] = Result.NumberDigits[0] - 2 * Result.NumberDigits[0];
-			Carry = 0;
-			for (i = DifferenceLength - 1; i >= 0; i--)
-			{
-				Result.NumberDigits[i] = 10 - abs(Result.NumberDigits[i] % 10) - Carry;
-				Carry = 1;
-			}
-		}
-	}
-
 	while(Result.NumberDigits[0] == 0)
 	{
 		for (i = 0; i < DifferenceLength - 1; i++)
@@ -101,7 +100,8 @@ int Difference::Calculate(int FirstNumberLength, int SecondNumberLength)
 		}
 		DifferenceLength--;
 	}
-        return DifferenceLength;
+
+        Result.NumberDigitsLength = DifferenceLength;
 
 }
 
