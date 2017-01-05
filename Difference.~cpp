@@ -101,6 +101,7 @@ int Difference::Calculate(int FirstNumberLength, int SecondNumberLength)
 		}
 		DifferenceLength--;
 	}
+        return DifferenceLength;
 
 }
 

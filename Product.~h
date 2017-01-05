@@ -10,8 +10,7 @@ class Product : public Operation
 {
         public:
                 Product();
-                void Calculate(int FirstNumber[], int SecondNumber[]);
-                //~Product();
+                int Calculate(int FirstNumberLength, int SecondNumberLength);
 };
 
 //---------------------------------------------------------------------------

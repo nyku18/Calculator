@@ -14,18 +14,20 @@ Sum::Sum()
 
 }
 
-int Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
+int Sum::Calculate()
 {
         int Carry = 0;
 	int i = 0;
         int Aux;
+        int FirstNumberLength =  FirstNumber.NumberDigitsLength;
+        int SecondNumberLength = SecondNumber.NumberDigitsLength;
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
-		Result[i] = FirstNumber[i] + SecondNumber[i] + Carry;
+                Result.NumberDigits[i] = FirstNumber.NumberDigits[i] + SecondNumber.NumberDigits[i] + Carry;
 		Carry = 0;
-		if(Result[i] >= 10)
+		if(Result.NumberDigits[i] >= 10)
 		{
-			Result[i] = Result[i] % 10;
+			Result.NumberDigits[i] = Result.NumberDigits[i] % 10;
 			Carry = 1;
 		}
 		i++;
@@ -35,11 +37,11 @@ int Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 	
 	while(FirstNumberLength != 0)
 	{
-		Result[i] =  FirstNumber[i] + Carry;
+		Result.NumberDigits[i] =  FirstNumber.NumberDigits[i] + Carry;
 		Carry = 0;
-		if(Result[i] >= 10)
+		if(Result.NumberDigits[i] >= 10)
 		{
-			Result[i] = Result[i] % 10;
+			Result.NumberDigits[i] = Result.NumberDigits[i] % 10;
 			Carry = 1;
 		}
 		FirstNumberLength--;
@@ -48,11 +50,11 @@ int Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 	
 	while(SecondNumberLength != 0)
 	{
-		Result[i] = SecondNumber[i] + Carry;
+		Result.NumberDigits[i] = SecondNumber.NumberDigits[i] + Carry;
 		Carry = 0;
-		if(Result[i] >= 10)
+		if(Result.NumberDigits[i] >= 10)
 		{
-			Result[i] = Result[i] % 10;
+			Result.NumberDigits[i] = Result.NumberDigits[i] % 10;
 			Carry = 1;
 		}
 		SecondNumberLength--;
@@ -63,15 +65,15 @@ int Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 
         if(Carry != 0)
         {
-                Result[SumLength] = 1;
+                Result.NumberDigits[SumLength] = 1;
                 SumLength++;
         }
 
         for(i = 0; i < SumLength/2; i++)
 	{
-		Aux = Result[i];
-		Result[i] = Result[SumLength - i - 1];
-		Result[SumLength - i - 1] = Aux;
+		Aux = Result.NumberDigits[i];
+		Result.NumberDigits[i] = Result.NumberDigits[SumLength - i - 1];
+		Result.NumberDigits[SumLength - i - 1] = Aux;
 	}
 
         return SumLength;

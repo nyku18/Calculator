@@ -23,17 +23,30 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
         String SFirstNumber = eFirstNumber->Text;
         String SSecondNumber = eSecondNumber->Text;
 
-        int FirstNumberDigits[100];
-        int SecondNumberDigits[100];
-
-        Number FirstNumber;
+        Number FirstNumber;   //creez obiectul in memorie
         Number SecondNumber;
 
         FirstNumber.StringToInt(SFirstNumber);
         SecondNumber.StringToInt(SSecondNumber);
 
+        FirstNumber.Overturn();
+        SecondNumber.Overturn();
 
+        Sum SumResult = Sum();     //creez obiectul in memorie
 
+        SumResult.FirstNumber = FirstNumber;
+        SumResult.SecondNumber = SecondNumber;
+
+        int ResultLength = SumResult.Calculate();
+
+        int i;
+
+        String text = " ";
+        for(i = 0; i < ResultLength; i++)
+        {
+                text += SumResult.Result.NumberDigits[i];
+        }
+        eResult->Text = text;
 
 }
 //---------------------------------------------------------------------------

@@ -10,7 +10,7 @@ class Sum : public Operation
 {
         public:
                 Sum();
-                int Calculate(int FirstNumberLength, int SecondNumberLength);
+                int Calculate();
 };
 
 //---------------------------------------------------------------------------

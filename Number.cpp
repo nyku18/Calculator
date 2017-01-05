@@ -43,12 +43,12 @@ void Number::StringToInt(String SNumberDigits)
         char CNumberDigits[100];
         memcpy(CNumberDigits, StringToChar(SNumberDigits), sizeof(CNumberDigits));
 
-        memcpy(NumberDigits, CharToInt(CNumberDigits, NumberDigitsLength), sizeof(NumberDigits));
+        memcpy(NumberDigits, CharToInt(CNumberDigits), sizeof(NumberDigits));
 
         //return NumberDigits;
 }
 
-int* Number::Overturn(int* NumberDigits)
+void Number::Overturn()
 {
         int i;
 
@@ -59,5 +59,6 @@ int* Number::Overturn(int* NumberDigits)
                 OverturnedNumberDigits[NumberDigitsLength - i - 1] = NumberDigits[i];
         }
 
-        return OverturnedNumberDigits;
+        memcpy(NumberDigits, OverturnedNumberDigits, sizeof(NumberDigits));
+        //return OverturnedNumberDigits;
 }

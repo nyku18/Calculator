@@ -1,6 +1,6 @@
 object fCalculator: TfCalculator
-  Left = 779
-  Top = 189
+  Left = 980
+  Top = 206
   Width = 766
   Height = 338
   Caption = 'Calculator'

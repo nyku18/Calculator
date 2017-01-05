@@ -14,7 +14,7 @@ class Number
                 int NumberDigitsLength;
                 Number();
                 void StringToInt(String SNumberDigits);
-                int* Overturn(int* NumberDigits);
+                void Overturn();
         private:
                 char* StringToChar(String SNumberDigits);
                 int* CharToInt(char* CNumberDigits);

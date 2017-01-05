@@ -13,7 +13,7 @@ class Operation
                 Number SecondNumber;
                 Number Result;
                 Operation();
-                int Calculate(int FirstNumberLength, int SecondNumberLength);
+                int Calculate();
 };
 
 //---------------------------------------------------------------------------
