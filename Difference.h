@@ -10,8 +10,7 @@ class Difference : public Operation
 {
         public:
                 Difference();
-                void Calculate(int FirstNumber[], int SecondNumber[]);
-                //~Difference();
+                int Calculate(int FirstNumberLength, int SecondNumberLength);
 };
 
 //---------------------------------------------------------------------------

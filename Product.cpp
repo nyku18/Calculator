@@ -14,14 +14,11 @@ Product::Product()
 
 }
 
-void Product::Calculate(int FirstNumber[], int SecondNumber[])
+int Product::Calculate(int FirstNumberLength, int SecondNumberLength)
 {
-        int FirstNumberLength = sizeof(FirstNumber);
-        int SecondNumberLength = sizeof(SecondNumber);
         int Carry = 0;
 	int i = 0;
         int j = 0;
-        int ProductResult[200];
         int ProductMatrix[100][100];
         int Aux;
         for(i = 0; i < SecondNumberLength ; i++)
@@ -56,15 +53,15 @@ void Product::Calculate(int FirstNumber[], int SecondNumber[])
 	Carry = 0;
 	for(i = 0; i <  FirstNumberLength + SecondNumberLength; i++)
 	{
-		ProductResult[i] = 0;
+		Result[i] = 0;
 		for(j = 0; j < SecondNumberLength ; j++)
 		{
-			ProductResult[i] = ProductResult[i] + ProductMatrix[j][i] + Carry;
+			Result[i] = Result[i] + ProductMatrix[j][i] + Carry;
 			Carry = 0;
-			if(ProductResult[i] >= 10)
+			if(Result[i] >= 10)
 			{
 				Carry = 1;
-				ProductResult[i] = ProductResult[i] % 10;
+				Result[i] = Result[i] % 10;
 			}
 		}
 	}
@@ -73,21 +70,21 @@ void Product::Calculate(int FirstNumber[], int SecondNumber[])
 
 	if(Carry != 0)
 	{
-		ProductResult[ProductLength+1] = Carry;
+		Result[ProductLength+1] = Carry;
 		ProductLength++;
 	}
 
-	if(ProductResult[ProductLength] == 0)
+	if(Result[ProductLength] == 0)
 	{
 		ProductLength--;
 	}
 
 	for(i = 0; i < ProductLength/2; i++)
 	{
-		Aux = ProductResult[i];
-		ProductResult[i] = ProductResult[ProductLength - i - 1];
-		ProductResult[ProductLength - i - 1] = Aux;
+		Aux = Result[i];
+		Result[i] = Result[ProductLength - i - 1];
+		Result[ProductLength - i - 1] = Aux;
 	}
 
-        //Result = ProductResult;
+        return ProductLength;
 }

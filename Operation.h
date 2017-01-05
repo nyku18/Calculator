@@ -12,9 +12,7 @@ class Operation
                 int Result[100];
                 Operation();
                 int Calculate(int FirstNumberLength, int SecondNumberLength);
-                //~Operation();
 };
-
 
 //---------------------------------------------------------------------------
 #endif

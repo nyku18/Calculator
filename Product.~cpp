@@ -22,8 +22,8 @@ void Product::Calculate(int FirstNumber[], int SecondNumber[])
 	int i = 0;
         int j = 0;
         int ProductResult[200];
-        int ProductMatrix[100][100]
-        int aux;
+        int ProductMatrix[100][100];
+        int Aux;
         for(i = 0; i < SecondNumberLength ; i++)
 	{
 		for(j = 0; j < FirstNumberLength ; j++)
@@ -84,9 +84,9 @@ void Product::Calculate(int FirstNumber[], int SecondNumber[])
 
 	for(i = 0; i < ProductLength/2; i++)
 	{
-		aux = ProductResult[i];
+		Aux = ProductResult[i];
 		ProductResult[i] = ProductResult[ProductLength - i - 1];
-		ProductResult[ProductLength - i - 1] = aux;
+		ProductResult[ProductLength - i - 1] = Aux;
 	}
 
         //Result = ProductResult;

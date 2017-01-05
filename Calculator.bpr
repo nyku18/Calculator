@@ -5,7 +5,7 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Calculator.exe"/>
     <OBJFILES value="Calculator.obj CalculatorForm.obj Operation.obj Sum.obj Product.obj 
-      Difference.obj"/>
+      Difference.obj Number.obj"/>
     <RESFILES value="Calculator.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -62,6 +62,7 @@
       <FILE FILENAME="Sum.cpp" FORMNAME="" UNITNAME="Sum.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Product.cpp" FORMNAME="" UNITNAME="Product" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Difference.cpp" FORMNAME="" UNITNAME="Difference" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Number.cpp" FORMNAME="" UNITNAME="Number" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

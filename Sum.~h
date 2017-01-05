@@ -12,7 +12,6 @@ class Sum : public Operation
                 Sum();
                 int Calculate(int FirstNumberLength, int SecondNumberLength);
                 //~Sum();
-
 };
 
 //---------------------------------------------------------------------------

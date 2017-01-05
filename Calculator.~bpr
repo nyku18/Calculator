@@ -4,8 +4,8 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Calculator.exe"/>
-    <OBJFILES value="Calculator.obj CalculatorForm.obj Operation.obj Sum.obj Diference.obj 
-      Product.obj"/>
+    <OBJFILES value="Calculator.obj CalculatorForm.obj Operation.obj Sum.obj Product.obj 
+      Difference.obj"/>
     <RESFILES value="Calculator.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -60,8 +60,8 @@
       <FILE FILENAME="CalculatorForm.cpp" FORMNAME="fCalculator" UNITNAME="CalculatorForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Operation.cpp" FORMNAME="" UNITNAME="Operation.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Sum.cpp" FORMNAME="" UNITNAME="Sum.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Diference.cpp" FORMNAME="" UNITNAME="Diference" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Product.cpp" FORMNAME="" UNITNAME="Product" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Difference.cpp" FORMNAME="" UNITNAME="Difference" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

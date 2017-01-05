@@ -22,7 +22,6 @@ int Sum::Calculate(int FirstNumberLength, int SecondNumberLength)
 	while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	{
 		Result[i] = FirstNumber[i] + SecondNumber[i] + Carry;
-                int cc = Result[i];
 		Carry = 0;
 		if(Result[i] >= 10)
 		{
