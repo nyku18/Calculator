@@ -13,7 +13,7 @@
 
 Number::Number()
 {
-
+        NumberSign = 1;
 }
 
 char* Number::StringToChar(String SNumberDigits)

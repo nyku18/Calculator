@@ -39,6 +39,7 @@ void Difference::Calculate()
         {
                 if(Equal == -1)
                 {
+                        Result.NumberSign = 0;
                         Swap();
                 }
         }

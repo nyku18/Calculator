@@ -54,7 +54,14 @@ void __fastcall TfCalculator::btnSubstractClick(TObject *Sender)
 
         DifferenceResult.Calculate();
 
-        eResult->Text = DifferenceResult.Result.IntToString();
+        String ResultNumber = DifferenceResult.Result.IntToString();
+
+        if(DifferenceResult.Result == 0)
+        {
+                ResultNumber += "-";
+        }
+
+        eResult->Text = ResultNumber;
 
 }
 //---------------------------------------------------------------------------

@@ -12,7 +12,6 @@ class Number
 
                 int NumberDigits[100];
                 int NumberDigitsLength;
-                
                 Number();
                 void StringToInt(String SNumberDigits);
                 void Overturn();
