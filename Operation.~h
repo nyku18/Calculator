@@ -2,19 +2,19 @@
 
 #ifndef OperationH
 #define OperationH
+
+#include "Number.h"
 //---------------------------------------------------------------------------
 
 class Operation
 {
         public:
-                int FirstNumber[100];
-                int SecondNumber[100];
-                int Result[100];
+                Number FirstNumber;
+                Number SecondNumber;
+                Number Result;
                 Operation();
                 int Calculate(int FirstNumberLength, int SecondNumberLength);
-                //~Operation();
 };
-
 
 //---------------------------------------------------------------------------
 #endif
