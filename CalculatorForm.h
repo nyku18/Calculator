@@ -24,6 +24,7 @@ __published:	// IDE-managed Components
         void __fastcall btnAddClick(TObject *Sender);
         void __fastcall btnExitClick(TObject *Sender);
         void __fastcall btnSubstractClick(TObject *Sender);
+        void __fastcall btbMultiplyClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TfCalculator(TComponent* Owner);

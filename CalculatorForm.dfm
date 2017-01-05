@@ -59,6 +59,7 @@ object fCalculator: TfCalculator
     Height = 33
     Caption = 'MULTIPLY'
     TabOrder = 5
+    OnClick = btbMultiplyClick
   end
   object btnDivide: TButton
     Left = 656

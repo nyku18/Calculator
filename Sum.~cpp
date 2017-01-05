@@ -14,7 +14,7 @@ Sum::Sum()
 
 }
 
-int Sum::Calculate()
+void Sum::Calculate()
 {
         int Carry = 0;
 	int i = 0;
@@ -76,7 +76,7 @@ int Sum::Calculate()
 		Result.NumberDigits[SumLength - i - 1] = Aux;
 	}
 
-        return SumLength;
+        Result.NumberDigitsLength = SumLength;
 
 }
 

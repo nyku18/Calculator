@@ -21,8 +21,26 @@ void Product::Calculate()
         int j = 0;
         int ProductMatrix[100][100];
         int Aux;
+        int Equal;
+
+        Equal = Compare();
+
+        if(Equal == -1)
+        {
+                Swap();
+        }
+
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
         int SecondNumberLength = SecondNumber.NumberDigitsLength;
+
+        for(i = 0; i < SecondNumberLength ; i++)
+	{
+		for(j = 0; j < FirstNumberLength ; j++)
+		{
+                        ProductMatrix[i][j] = 0;
+                }
+        }
+
         for(i = 0; i < SecondNumberLength ; i++)
 	{
 		for(j = 0; j < FirstNumberLength ; j++)
@@ -40,20 +58,9 @@ void Product::Calculate()
 			ProductMatrix[i][j+1] = Carry;
 		}
 	}
-	
-	for(i = 0; i < SecondNumberLength; i++)
-	{
-		for(j = 0; j < FirstNumberLength + SecondNumberLength ; j++)
-		{
-			if(!(ProductMatrix[i][j] != 0))
-			{
-				ProductMatrix[i][j] = 0;
-			}
-		}
-	}
 
 	Carry = 0;
-	for(i = 0; i <  FirstNumberLength + SecondNumberLength; i++)
+	for(i = 0; i <  FirstNumberLength + SecondNumberLength - 1; i++)
 	{
 		Result.NumberDigits[i] = 0;
 		for(j = 0; j < SecondNumberLength ; j++)
@@ -76,7 +83,7 @@ void Product::Calculate()
 		ProductLength++;
 	}
 
-	if(Result.NumberDigits[ProductLength] == 0)
+	if(Result.NumberDigits[ProductLength - 1] == 0)
 	{
 		ProductLength--;
 	}
