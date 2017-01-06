@@ -9,6 +9,7 @@
 #include <Sum.h>
 #include <Difference.h>
 #include <Product.h>
+#include <Quotient.h>
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -89,6 +90,33 @@ void __fastcall TfCalculator::btbMultiplyClick(TObject *Sender)
         ProductResult.Calculate();
 
         eResult->Text = ProductResult.Result.IntToString();
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfCalculator::btnDivideClick(TObject *Sender)
+{
+        String SFirstNumber = eFirstNumber->Text;
+        String SSecondNumber = eSecondNumber->Text;
+
+        Quotient QuotientResult = Quotient();
+
+        QuotientResult.FirstNumber.StringToInt(SFirstNumber);
+        QuotientResult.SecondNumber.StringToInt(SSecondNumber);
+
+        QuotientResult.FirstNumber.Overturn();
+        QuotientResult.SecondNumber.Overturn();
+
+        QuotientResult.Calculate();
+
+        String Sign = "";
+
+        if(QuotientResult.Result.NumberSign != 0)
+        {
+                Sign = ".";
+        }
+
+        eResult->Text = QuotientResult.Result.IntToString();
 
 }
 //---------------------------------------------------------------------------

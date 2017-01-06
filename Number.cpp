@@ -4,7 +4,6 @@
 #pragma hdrstop
 
 #include "Number.h"
-//#include <string.h>
 #include <vcl.h>
 
 //---------------------------------------------------------------------------

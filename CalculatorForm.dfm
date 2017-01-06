@@ -68,6 +68,7 @@ object fCalculator: TfCalculator
     Height = 33
     Caption = 'DIVIDE'
     TabOrder = 6
+    OnClick = btnDivideClick
   end
   object btnInverse: TButton
     Left = 656
