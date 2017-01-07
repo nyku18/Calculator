@@ -116,7 +116,15 @@ void __fastcall TfCalculator::btnDivideClick(TObject *Sender)
                 Sign = ".";
         }
 
-        eResult->Text = QuotientResult.Result.IntToString();
+        for(int i = 0; i < QuotientResult.Result.NumberSign; i++)
+        {
+                eResult->Text = QuotientResult.Result.IntToString();
+        }
+        eResult->Text = Sign;
+        for(int i = QuotientResult.Result.NumberSign + 1; i < QuotientResult.Result.NumberDigitsLength; i++)
+        {
+                eResult->Text = QuotientResult.Result.IntToString();
+        }
 
 }
 //---------------------------------------------------------------------------
