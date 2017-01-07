@@ -17,13 +17,30 @@ Quotient::Quotient()
 
 void Quotient::Calculate()
 {
-        int Carry1 = 0;
-        int Carry2 = 0;
+        int Carry = 0;
 	int i = 0;
         int j = 0;
         int QuotientLength = 0;
         int Aux;
         int Equal;
+       /*
+        Difference DifferenceR = Difference();
+
+        memcpy(DifferenceR.FirstNumber, FirstNumber, sizeof(DifferenceR.FirstNumber));
+        memcpy(DifferenceR.SecondNumber, SecondNumber, sizeof(DifferenceR.SecondNumber));
+
+        Equal = Compare();
+        Result.NumberDigits[i] = 0;
+
+        while(Equal >= 0)
+        {
+                DifferenceR.Calculate();
+                memcpy(DifferenceR.FirstNumber, DifferenceR.Result, sizeof(DifferenceR.FirstNumber));
+                Equal = Compare();
+
+                Result.NumberDigits[i]++;
+
+        } */
 
         if(SecondNumber.NumberDigitsLength == 1 && SecondNumber.NumberDigits[0] == 1)
         {
@@ -56,18 +73,19 @@ void Quotient::Calculate()
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
         int SecondNumberLength = SecondNumber.NumberDigitsLength;
 
-        Result.NumberDigits[i] = 0;
+        Result.NumberDigits[0] = 0;
 
         while(Equal >= 0)
         {
+                i = 0;
                 while(FirstNumberLength != 0 && SecondNumberLength != 0)
 	        {
-                        FirstNumber.NumberDigits[i] = FirstNumber.NumberDigits[i] - SecondNumber.NumberDigits[i] - Carry1;
-		        Carry1 = 0;
+                        FirstNumber.NumberDigits[i] = FirstNumber.NumberDigits[i] - SecondNumber.NumberDigits[i] - Carry;
+		        Carry = 0;
 		        if(FirstNumber.NumberDigits[i] < 0)
 		        {
 			        FirstNumber.NumberDigits[i] = 10 - abs(FirstNumber.NumberDigits[i]);
-			        Carry1 = 1;
+			        Carry = 1;
 		        }
 		        i++;
 		        FirstNumberLength--;
@@ -76,42 +94,43 @@ void Quotient::Calculate()
 
                 while(FirstNumberLength != 0)
 	        {
-		        FirstNumber.NumberDigits[i] = FirstNumber.NumberDigits[i] - Carry1;
-		        Carry1 = 0;
+		        FirstNumber.NumberDigits[i] = FirstNumber.NumberDigits[i] - Carry;
+		        Carry = 0;
 		        if(FirstNumber.NumberDigits[i] < 0)
 		        {
 			        FirstNumber.NumberDigits[i] = 10 - abs(FirstNumber.NumberDigits[i]);
-			        Carry1 = 1;
+			        Carry = 1;
 		        }
 		        FirstNumberLength--;
 		        i++;
 	        }
 
-                Result.NumberDigits[QuotientLength] = Result.NumberDigits[QuotientLength] + 1 + Carry2;
-                Carry2 = 0;
-		if(Result.NumberDigits[QuotientLength] >= 10)
-		{
-			Result.NumberDigits[QuotientLength] = Result.NumberDigits[QuotientLength] % 10;
-			Carry2 = 1;
-                        QuotientLength++;
-		}
+                Result.NumberDigits[QuotientLength] = Result.NumberDigits[QuotientLength] + 1;
+                for(i = 0; i < QuotientLength - 1; i++)
+                {
+		        if(Result.NumberDigits[i] >= 10)
+		        {
+			        Result.NumberDigits[i] = Result.NumberDigits[i] + 1;
+                                Result.NumberDigits[i + 1] = 0;
+		        }
+                }
+
+                if(Result.NumberDigits[QuotientLength - 1] >= 10)
+                {
+                        Result.NumberDigits[QuotientLength - 1] = Result.NumberDigits[QuotientLength - 1] + 1;
+                        Result.NumberDigits[QuotientLength] = 0;
+                }
 
                 FirstNumberLength =  FirstNumber.NumberDigitsLength;
                 SecondNumberLength = SecondNumber.NumberDigitsLength;
 
-                Equal = Compare();
-
-                if(FirstNumber.NumberDigits[0] == 0)
+                if(FirstNumber.NumberDigits[FirstNumberLength - 1] == 0)
 	        {
-		        for (i = 0; i < FirstNumberLength - 1; i++)
-		        {
-			        FirstNumber.NumberDigits[i] = FirstNumber.NumberDigits[i+1];
-		        }
 		        FirstNumberLength--;
                         FirstNumber.NumberDigitsLength--;
 	        }
 
-                i = 0;
+                Equal = Compare();
 
         }
 
@@ -126,7 +145,7 @@ void Quotient::Calculate()
         }
 
         QuotientLength++;
-        Result.NumberDigits[QuotientLength] = 0;
+        /*Result.NumberDigits[QuotientLength] = 0;
         Result.NumberSign = QuotientLength;
         QuotientLength++;
 
@@ -203,14 +222,14 @@ void Quotient::Calculate()
                         i = 0;
 
                 }
-        }
+        }*/
 
-        for(i = 0; i < QuotientLength/2; i++)
+        /*for(i = 0; i < QuotientLength/2; i++)
         {
                 Aux = Result.NumberDigits[i];
                 Result.NumberDigits[i] = Result.NumberDigits[QuotientLength - i - 1];
                 Result.NumberDigits[QuotientLength - i - 1] = Aux;
-        }
+        }*/
 
         while(Result.NumberDigits[0] == 0)
 	{
@@ -220,6 +239,7 @@ void Quotient::Calculate()
 		}
 		QuotientLength--;
 	}
+        
 
         Result.NumberDigitsLength = QuotientLength;
 
