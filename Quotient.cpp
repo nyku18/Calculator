@@ -16,32 +16,15 @@ Quotient::Quotient()
 
 }
 
-void Quotient::Calculate()
+int Quotient::Calculate()
 {
         int Carry = 0;
 	int i = 0;
         int j = 0;
         int QuotientLength = 1;
+        int DotPosition = 0;
         int Aux;
         int Equal;
-       /*
-        Difference DifferenceR = Difference();
-
-        memcpy(DifferenceR.FirstNumber, FirstNumber, sizeof(DifferenceR.FirstNumber));
-        memcpy(DifferenceR.SecondNumber, SecondNumber, sizeof(DifferenceR.SecondNumber));
-
-        Equal = Compare();
-        Result.NumberDigits[i] = 0;
-
-        while(Equal >= 0)
-        {
-                DifferenceR.Calculate();
-                memcpy(DifferenceR.FirstNumber, DifferenceR.Result, sizeof(DifferenceR.FirstNumber));
-                Equal = Compare();
-
-                Result.NumberDigits[i]++;
-
-        } */
 
         if(SecondNumber.NumberDigitsLength == 1 && SecondNumber.NumberDigits[0] == 1)
         {
@@ -56,7 +39,7 @@ void Quotient::Calculate()
                         Result.NumberDigits[i] = Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1];
                         Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1] = Aux;
                 }
-                return;
+                return DotPosition;
         }
 
         Equal = Compare();
@@ -68,7 +51,7 @@ void Quotient::Calculate()
                         Result.NumberDigits[i] = 1;
                 }
                 Result.NumberDigitsLength = 1;
-                return;
+                return DotPosition;
         }
 
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
@@ -166,12 +149,11 @@ void Quotient::Calculate()
 		        QuotientLength--;
 	        }
                 Result.NumberDigitsLength = QuotientLength;
-                return;
+                return DotPosition;
         }
 
-        //Result.NumberDigitsLength = QuotientLength;
-
         //dupa virgula
+        DotPosition = QuotientLength;
         Result.NumberSign = QuotientLength;
         QuotientLength++;
 
@@ -264,7 +246,7 @@ void Quotient::Calculate()
                 {
                         Result.NumberDigitsLength = QuotientLength;
                         j = SecondNumber.NumberDigitsLength;
-                        return;
+                        return DotPosition;
                 }
                 Result.NumberSign++;
                 QuotientLength++;
@@ -279,6 +261,7 @@ void Quotient::Calculate()
 		QuotientLength--;
 	}
 
-        Result.NumberDigitsLength = QuotientLength;
+        Result.NumberDigitsLength = QuotientLength - 1;
+        return DotPosition;
 
 }

@@ -42,7 +42,7 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
 
         SumResult.Calculate();
 
-        eResult->Text = SumResult.Result.IntToString();
+        eResult->Text = SumResult.Result.IntToString(0);
 
 }
 //---------------------------------------------------------------------------
@@ -69,7 +69,7 @@ void __fastcall TfCalculator::btnSubstractClick(TObject *Sender)
                 Sign = "-";
         }
 
-        eResult->Text = Sign + DifferenceResult.Result.IntToString();
+        eResult->Text = Sign + DifferenceResult.Result.IntToString(0);
 
 }
 //---------------------------------------------------------------------------
@@ -89,7 +89,7 @@ void __fastcall TfCalculator::btbMultiplyClick(TObject *Sender)
 
         ProductResult.Calculate();
 
-        eResult->Text = ProductResult.Result.IntToString();
+        eResult->Text = ProductResult.Result.IntToString(0);
 
 }
 //---------------------------------------------------------------------------
@@ -107,7 +107,8 @@ void __fastcall TfCalculator::btnDivideClick(TObject *Sender)
         QuotientResult.FirstNumber.Overturn();
         QuotientResult.SecondNumber.Overturn();
 
-        QuotientResult.Calculate();
+        int DotPosition;
+        DotPosition = QuotientResult.Calculate();
 
         String Sign = "";
 
@@ -116,7 +117,7 @@ void __fastcall TfCalculator::btnDivideClick(TObject *Sender)
                 Sign = ".";
         }
 
-        eResult->Text = QuotientResult.Result.IntToString();
+        eResult->Text = QuotientResult.Result.IntToString(DotPosition);
 
 }
 //---------------------------------------------------------------------------

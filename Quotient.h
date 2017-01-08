@@ -10,7 +10,7 @@ class Quotient : public Operation
 {
         public:
                 Quotient();
-                void Calculate();
+                int Calculate();
 };
 
 //---------------------------------------------------------------------------

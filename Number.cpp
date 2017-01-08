@@ -62,13 +62,18 @@ void Number::Overturn()
         //return OverturnedNumberDigits;
 }
 
-String Number::IntToString()
+String Number::IntToString(int DotPosition)
 {
         int i;
 
         String SNumberDigits = "";
         for(i = 0; i < NumberDigitsLength; i++)
         {
+                if( i == DotPosition && DotPosition != 0)
+                {
+                  SNumberDigits += ".";
+                }
+
                 SNumberDigits += NumberDigits[i];
         }
 
