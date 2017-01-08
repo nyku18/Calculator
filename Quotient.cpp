@@ -116,14 +116,13 @@ void Quotient::Calculate()
 		        {
 			        Result.NumberDigits[i] = 0;
                                 Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
-                                QuotientLength++;
 		        }
                 }
 
-                if(Result.NumberDigits[QuotientLength - 1] >= 10)
+                while(Result.NumberDigits[QuotientLength - 1] >= 10)
                 {
-                        Result.NumberDigits[i] = 0;
-                        Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
+                        Result.NumberDigits[QuotientLength - 1] = 0;
+                        Result.NumberDigits[QuotientLength] = Result.NumberDigits[QuotientLength] + 1;
                         QuotientLength++;
                 }
 
@@ -150,12 +149,26 @@ void Quotient::Calculate()
 
         if(Equal == -1 && FirstNumber.NumberDigitsLength == 1 && FirstNumber.NumberDigits[0] == 0)
         {
+                for(i = 0; i < QuotientLength/2; i++)
+	        {
+		        Aux = Result.NumberDigits[i];
+		        Result.NumberDigits[i] = Result.NumberDigits[QuotientLength - i - 1];
+		        Result.NumberDigits[QuotientLength - i - 1] = Aux;
+	        }
+
+                while(Result.NumberDigits[0] == 0)
+	        {
+		        for (i = 0; i < QuotientLength - 1; i++)
+		        {
+			        Result.NumberDigits[i] = Result.NumberDigits[i+1];
+		        }
+		        QuotientLength--;
+	        }
                 Result.NumberDigitsLength = QuotientLength;
                 return;
         }
 
         //dupa virgula
-        QuotientLength++;
         Result.NumberSign = QuotientLength;
         QuotientLength++;
 
@@ -212,14 +225,13 @@ void Quotient::Calculate()
 		                {
 			                Result.NumberDigits[i] = 0;
                                         Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
-                                        QuotientLength++;
 		                }
                         }
 
-                        if(Result.NumberDigits[QuotientLength - 1] >= 10)
+                        while(Result.NumberDigits[QuotientLength - 1] >= 10)
                         {
-                                Result.NumberDigits[i] = 0;
-                                Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
+                                Result.NumberDigits[QuotientLength - 1] = 0;
+                                Result.NumberDigits[QuotientLength] = Result.NumberDigits[QuotientLength] + 1;
                                 QuotientLength++;
                         }
 
