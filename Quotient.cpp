@@ -43,7 +43,6 @@ void Quotient::Calculate()
 
         } */
 
-
         if(SecondNumber.NumberDigitsLength == 1 && SecondNumber.NumberDigits[0] == 1)
         {
                 for(int i = 0; i <  FirstNumber.NumberDigitsLength; i++)
@@ -52,11 +51,11 @@ void Quotient::Calculate()
                 }
                 Result.NumberDigitsLength = FirstNumber.NumberDigitsLength;
                 for(i = 0; i < FirstNumber.NumberDigitsLength/2; i++)
-	        {
-		        Aux = Result.NumberDigits[i];
-		        Result.NumberDigits[i] = Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1];
-		        Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1] = Aux;
-	        }
+                {
+                        Aux = Result.NumberDigits[i];
+                        Result.NumberDigits[i] = Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1];
+                        Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1] = Aux;
+                }
                 return;
         }
 
@@ -147,14 +146,16 @@ void Quotient::Calculate()
 
         Equal = Compare();
 
+        for(i = 0; i < QuotientLength/2; i++)
+        {
+                Aux = Result.NumberDigits[i];
+                Result.NumberDigits[i] = Result.NumberDigits[QuotientLength - i - 1];
+                Result.NumberDigits[QuotientLength - i - 1] = Aux;
+        }
+
         if(Equal == -1 && FirstNumber.NumberDigitsLength == 1 && FirstNumber.NumberDigits[0] == 0)
         {
-                for(i = 0; i < QuotientLength/2; i++)
-	        {
-		        Aux = Result.NumberDigits[i];
-		        Result.NumberDigits[i] = Result.NumberDigits[QuotientLength - i - 1];
-		        Result.NumberDigits[QuotientLength - i - 1] = Aux;
-	        }
+
 
                 while(Result.NumberDigits[0] == 0)
 	        {
@@ -167,6 +168,8 @@ void Quotient::Calculate()
                 Result.NumberDigitsLength = QuotientLength;
                 return;
         }
+
+        //Result.NumberDigitsLength = QuotientLength;
 
         //dupa virgula
         Result.NumberSign = QuotientLength;
@@ -247,6 +250,24 @@ void Quotient::Calculate()
                         Equal = Compare();
 
                 }
+
+                int Contor = 0;
+                for(i = 0; i < FirstNumber.NumberDigitsLength; i++)
+                {
+                        if(FirstNumber.NumberDigits[i] == 0)
+                        {
+                                Contor++;
+                        }
+                }
+
+                if(Contor == FirstNumber.NumberDigitsLength)
+                {
+                        Result.NumberDigitsLength = QuotientLength;
+                        j = SecondNumber.NumberDigitsLength;
+                        return;
+                }
+                Result.NumberSign++;
+                QuotientLength++;
         }
 
         while(Result.NumberDigits[0] == 0)
