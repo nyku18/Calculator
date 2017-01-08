@@ -13,6 +13,10 @@
 Number::Number()
 {
         NumberSign = 1;
+        for(int i = 0; i < 100; i++)
+        {
+                NumberDigits[i] = 0;
+        }
 }
 
 char* Number::StringToChar(String SNumberDigits)
@@ -41,10 +45,8 @@ void Number::StringToInt(String SNumberDigits)
 
         char CNumberDigits[100];
         memcpy(CNumberDigits, StringToChar(SNumberDigits), sizeof(CNumberDigits));
-
         memcpy(NumberDigits, CharToInt(CNumberDigits), sizeof(NumberDigits));
 
-        //return NumberDigits;
 }
 
 void Number::Overturn()
@@ -52,6 +54,10 @@ void Number::Overturn()
         int i;
 
         int OverturnedNumberDigits[100];
+        for(int i = 0; i < 100; i++)
+        {
+                OverturnedNumberDigits[i] = 0;
+        }
 
         for(i = 0; i < NumberDigitsLength; i++)
         {
@@ -59,6 +65,7 @@ void Number::Overturn()
         }
 
         memcpy(NumberDigits, OverturnedNumberDigits, sizeof(NumberDigits));
+
         //return OverturnedNumberDigits;
 }
 

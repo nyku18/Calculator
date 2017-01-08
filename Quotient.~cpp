@@ -39,7 +39,7 @@ int Quotient::Calculate()
                         Result.NumberDigits[i] = Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1];
                         Result.NumberDigits[FirstNumber.NumberDigitsLength - i - 1] = Aux;
                 }
-                return;
+                return DotPosition;
         }
 
         Equal = Compare();
@@ -51,7 +51,7 @@ int Quotient::Calculate()
                         Result.NumberDigits[i] = 1;
                 }
                 Result.NumberDigitsLength = 1;
-                return;
+                return DotPosition;
         }
 
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;

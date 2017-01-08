@@ -57,11 +57,6 @@ int Quotient::Calculate()
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
         int SecondNumberLength = SecondNumber.NumberDigitsLength;
 
-        for(i = 0; i < 100; i++)
-        {
-                Result.NumberDigits[i] = 0;
-        }
-
         while(Equal >= 0)
         {
                 i = 0;

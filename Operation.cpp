@@ -11,7 +11,12 @@
 
 Operation::Operation()
 {
-
+        /*for(int i = 0; i < 100; i++)
+        {
+                FirstNumber.NumberDigits[i] = 0;
+                SecondNumber.NumberDigits[i] = 0;
+                Result.NumberDigits[i] = 0;
+        }*/
 }
 
 int Operation::Compare()
