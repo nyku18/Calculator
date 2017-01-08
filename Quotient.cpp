@@ -6,6 +6,7 @@
 #include "Quotient.h"
 #include <math.h>
 
+#include "Sum.h"
 //---------------------------------------------------------------------------
 
 #pragma package(smart_init)
@@ -20,7 +21,7 @@ void Quotient::Calculate()
         int Carry = 0;
 	int i = 0;
         int j = 0;
-        int QuotientLength = 0;
+        int QuotientLength = 1;
         int Aux;
         int Equal;
        /*
@@ -41,6 +42,7 @@ void Quotient::Calculate()
                 Result.NumberDigits[i]++;
 
         } */
+
 
         if(SecondNumber.NumberDigitsLength == 1 && SecondNumber.NumberDigits[0] == 1)
         {
@@ -73,7 +75,10 @@ void Quotient::Calculate()
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
         int SecondNumberLength = SecondNumber.NumberDigitsLength;
 
-        Result.NumberDigits[0] = 0;
+        for(i = 0; i < 100; i++)
+        {
+                Result.NumberDigits[i] = 0;
+        }
 
         while(Equal >= 0)
         {
@@ -104,22 +109,24 @@ void Quotient::Calculate()
 		        FirstNumberLength--;
 		        i++;
 	        }
-
-                Result.NumberDigits[QuotientLength] = Result.NumberDigits[QuotientLength] + 1;
+                Result.NumberDigits[0] = Result.NumberDigits[0] + 1;
                 for(i = 0; i < QuotientLength - 1; i++)
                 {
 		        if(Result.NumberDigits[i] >= 10)
 		        {
-			        Result.NumberDigits[i] = Result.NumberDigits[i] + 1;
-                                Result.NumberDigits[i + 1] = 0;
+			        Result.NumberDigits[i] = 0;
+                                Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
+                                QuotientLength++;
 		        }
                 }
 
                 if(Result.NumberDigits[QuotientLength - 1] >= 10)
                 {
-                        Result.NumberDigits[QuotientLength - 1] = Result.NumberDigits[QuotientLength - 1] + 1;
-                        Result.NumberDigits[QuotientLength] = 0;
+                        Result.NumberDigits[i] = 0;
+                        Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
+                        QuotientLength++;
                 }
+
 
                 FirstNumberLength =  FirstNumber.NumberDigitsLength;
                 SecondNumberLength = SecondNumber.NumberDigitsLength;
@@ -134,18 +141,21 @@ void Quotient::Calculate()
 
         }
 
+        if(FirstNumber.NumberDigitsLength == 0)
+        {
+                FirstNumber.NumberDigitsLength++;
+        }
+
         Equal = Compare();
 
-        Result.NumberSign = 0;
-
-        if(Equal == 0)
+        if(Equal == -1 && FirstNumber.NumberDigitsLength == 1 && FirstNumber.NumberDigits[0] == 0)
         {
                 Result.NumberDigitsLength = QuotientLength;
                 return;
         }
 
-        QuotientLength++;
         //dupa virgula
+        QuotientLength++;
         Result.NumberSign = QuotientLength;
         QuotientLength++;
 
@@ -195,20 +205,22 @@ void Quotient::Calculate()
 		                i++;
 	                }
 
-                        Result.NumberDigits[QuotientLength] = Result.NumberDigits[QuotientLength] + 1;
-                        for(i = Result.NumberSign + 1; i < QuotientLength - 1; i++)
+                        Result.NumberDigits[Result.NumberSign] = Result.NumberDigits[Result.NumberSign] + 1;
+                        for(i = Result.NumberSign; i < QuotientLength - 1; i++)
                         {
 		                if(Result.NumberDigits[i] >= 10)
 		                {
-			                Result.NumberDigits[i] = Result.NumberDigits[i] + 1;
-                                        Result.NumberDigits[i + 1] = 0;
+			                Result.NumberDigits[i] = 0;
+                                        Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
+                                        QuotientLength++;
 		                }
                         }
 
                         if(Result.NumberDigits[QuotientLength - 1] >= 10)
                         {
-                                Result.NumberDigits[QuotientLength - 1] = Result.NumberDigits[QuotientLength - 1] + 1;
-                                Result.NumberDigits[QuotientLength] = 0;
+                                Result.NumberDigits[i] = 0;
+                                Result.NumberDigits[i + 1] = Result.NumberDigits[i+1] + 1;
+                                QuotientLength++;
                         }
 
                         FirstNumberLength =  FirstNumber.NumberDigitsLength;
@@ -233,8 +245,6 @@ void Quotient::Calculate()
 		}
 		QuotientLength--;
 	}
-
-        QuotientLength--;
 
         Result.NumberDigitsLength = QuotientLength;
 
