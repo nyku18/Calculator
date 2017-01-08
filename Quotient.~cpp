@@ -25,8 +25,8 @@ int Quotient::Calculate()
         int DotPosition = 0;
         int Aux;
         int Equal;
-
-        int inv = 0;
+        int Done;
+        int SecondNumberBigger = 0;
 
         Result.NumberSign = 0;
 
@@ -62,8 +62,7 @@ int Quotient::Calculate()
         {
                 DotPosition = QuotientLength;
                 Result.NumberSign = QuotientLength;
-                //QuotientLength++;
-                inv = 1;
+                int SecondNumberBigger  = 1;
         }
 
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
@@ -162,22 +161,22 @@ int Quotient::Calculate()
         //dupa virgula
 
         DotPosition = QuotientLength;
-        if(inv == 1)
+        if(SecondNumberBigger  == 1)
         {
                 DotPosition = 1;
-                //QuotientLength--;
         }
 
 
         Result.NumberSign = QuotientLength;
         QuotientLength++;
-                   int done = 0;
+
         for(j = 0; j < SecondNumber.NumberDigitsLength; j++)
         {
-        done = 0;
+                Done = 0;
                 while(Equal == -1)
                 {
-                        if(done != 0) {
+                        if(Done != 0)
+                        {
                                 Result.NumberSign++;
                                 QuotientLength++;
                         }
@@ -190,7 +189,7 @@ int Quotient::Calculate()
                         }
                         FirstNumber.NumberDigits[0] = 0;
 
-                              done = 1;
+                        Done = 1;
 
                         Equal = Compare();
 
