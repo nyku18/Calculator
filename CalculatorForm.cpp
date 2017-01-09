@@ -10,6 +10,7 @@
 #include <Difference.h>
 #include <Product.h>
 #include <Quotient.h>
+#include <Inverted.h>
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -118,6 +119,33 @@ void __fastcall TfCalculator::btnDivideClick(TObject *Sender)
         }
 
         eResult->Text = QuotientResult.Result.IntToString(DotPosition);
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfCalculator::btnInverseClick(TObject *Sender)
+{
+        String SSecondNumber = eFirstNumber->Text;
+
+        Inverted InvertedResult = Inverted();
+
+        InvertedResult.SecondNumber.StringToInt(SSecondNumber);
+
+        InvertedResult.SecondNumber.Overturn();
+
+        InvertedResult.FirstNumber.StringToInt("1");
+
+        int DotPosition;
+        DotPosition = InvertedResult.Calculate();
+
+        String Sign = "";
+
+        if(InvertedResult.Result.NumberSign != 0)
+        {
+                Sign = ".";
+        }
+
+        eResult->Text = InvertedResult.Result.IntToString(DotPosition);
 
 }
 //---------------------------------------------------------------------------

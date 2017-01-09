@@ -5,7 +5,7 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Calculator.exe"/>
     <OBJFILES value="Calculator.obj CalculatorForm.obj Operation.obj Sum.obj Product.obj 
-      Difference.obj Number.obj Quotient.obj"/>
+      Difference.obj Number.obj Quotient.obj Inverted.obj Root.obj"/>
     <RESFILES value="Calculator.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -64,6 +64,8 @@
       <FILE FILENAME="Difference.cpp" FORMNAME="" UNITNAME="Difference" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Number.cpp" FORMNAME="" UNITNAME="Number" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Quotient.cpp" FORMNAME="" UNITNAME="Quotient" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Inverted.cpp" FORMNAME="" UNITNAME="Inverted" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Root.cpp" FORMNAME="" UNITNAME="Root" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

@@ -77,6 +77,7 @@ object fCalculator: TfCalculator
     Height = 33
     Caption = 'INVERSE'
     TabOrder = 7
+    OnClick = btnInverseClick
   end
   object btnSquareRoot: TButton
     Left = 656

@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+
+#include "Inverted.h"
+
+#include "Quotient.h"
+
+//---------------------------------------------------------------------------
+
+#pragma package(smart_init)
+
+Inverted::Inverted()
+{
+
+}
+
+int Inverted::Calculate()
+{
+        Quotient InvertedResult = Quotient();
+
+        InvertedResult.FirstNumber = FirstNumber;
+        InvertedResult.SecondNumber = SecondNumber;
+
+        InvertedResult.Calculate();
+
+}
