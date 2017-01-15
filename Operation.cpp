@@ -56,6 +56,48 @@ int Operation::Compare()
 
 }
 
+int Operation::Compare(Number FirstNumber, Number SecondNumber)
+{
+        int Equal = 1;
+        if(FirstNumber.NumberDigitsLength < SecondNumber.NumberDigitsLength)
+        {
+                Equal = -1;
+        }
+        else
+        {
+                if(FirstNumber.NumberDigitsLength == SecondNumber.NumberDigitsLength)
+                {
+                        Equal = 0;
+                        int i =  FirstNumber.NumberDigitsLength - 1;
+                        while(Equal == 0 && i != -1)
+                        {
+                                if(FirstNumber.NumberDigits[i] > SecondNumber.NumberDigits[i])
+                                {
+                                        Equal = 1;
+                                }
+                                else
+                                {
+                                        if(FirstNumber.NumberDigits[i] < SecondNumber.NumberDigits[i])
+                                        {
+                                                Equal = -1;
+                                        }
+                                }
+                                i--;
+                        }
+                }
+                else
+                {
+                        if(FirstNumber.NumberDigitsLength > SecondNumber.NumberDigitsLength)
+                        {
+                                Equal = 1;
+                        }
+                }
+        }
+
+        return Equal;
+
+}
+
 void Operation::Swap()
 {
 	 int i;

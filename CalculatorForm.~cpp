@@ -155,14 +155,24 @@ void __fastcall TfCalculator::btnInverseClick(TObject *Sender)
 void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
 {
            String SFirstNumber = eFirstNumber->Text;
-           //eSecondNumber->Text = "sdfy";
+           eSecondNumber->Text = "0";
            
            Root RootResult = Root();
            RootResult.FirstNumber.StringToInt(SFirstNumber);
            RootResult.FirstNumber.Overturn();
            int DotPosition;
-           DotPosition = RootResult.Calculate();
+           RootResult.Calculate();
 
+           String Sign = "";
+        /*
+        if(RootResult.Result.NumberSign != 0)
+        {
+                Sign = ".";
+        }  */
+
+        //eResult->Text = RootResult.Result.IntToString(0);
+
+                                                                         
 }
 //---------------------------------------------------------------------------
 

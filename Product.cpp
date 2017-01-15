@@ -19,7 +19,7 @@ void Product::Calculate()
         int Carry = 0;
 	int i = 0;
         int j = 0;
-        int ProductMatrix[100][100];
+        int ProductMatrix[200][200];
         int Aux;
         int Equal;
         int OverFlow;
@@ -35,9 +35,9 @@ void Product::Calculate()
         int FirstNumberLength =  FirstNumber.NumberDigitsLength;
         int SecondNumberLength = SecondNumber.NumberDigitsLength;
 
-        for(i = 0; i < 100 ; i++)
+        for(i = 0; i < 200 ; i++)
 	{
-		for(j = 0; j < 100 ; j++)
+		for(j = 0; j < 200 ; j++)
 		{
                         ProductMatrix[i][j] = 0;
                 }

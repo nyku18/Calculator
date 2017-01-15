@@ -15,6 +15,7 @@ class Operation
                 Operation();
                 void Calculate();
                 int Compare();
+                int Compare(Number FirstNumber, Number SecondNumber);
                 void Swap();
 };
 
