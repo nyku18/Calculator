@@ -12,6 +12,7 @@
 
 Number::Number()
 {
+        NumberDigitsLength = 0;
         NumberSign = 1;
         for(int i = 0; i < 100; i++)
         {

@@ -156,9 +156,10 @@ void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
 {
            String SFirstNumber = eFirstNumber->Text;
            eSecondNumber->Text = "0";
-           
+
            Root RootResult = Root();
            RootResult.FirstNumber.StringToInt(SFirstNumber);
+           RootResult.SecondNumber.StringToInt("0");
            RootResult.FirstNumber.Overturn();
            int DotPosition;
            RootResult.Calculate();

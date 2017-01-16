@@ -77,9 +77,20 @@ int Root::Calculate()
         while((Position + 2) <= FirstNumber.NumberDigitsLength)
         {
                DifferenceResult.FirstNumber = DifferenceResult.Result;
-               DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 1];
-               DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength + 1] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 2];
-               DifferenceResult.FirstNumber.NumberDigitsLength += 2; 
+
+               if((DifferenceResult.FirstNumber.NumberDigitsLength == 1) && (DifferenceResult.FirstNumber.NumberDigits[0] == 0))
+               {
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength - 1] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 1];
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 2];
+                        DifferenceResult.FirstNumber.NumberDigitsLength += 1;
+               }
+               else
+               {
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 1];
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength + 1] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 2];
+                        DifferenceResult.FirstNumber.NumberDigitsLength += 2;
+               }
+
                DifferenceResult.FirstNumber.Overturn();
 
                Position = Position + 2;

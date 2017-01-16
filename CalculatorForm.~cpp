@@ -156,12 +156,13 @@ void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
 {
            String SFirstNumber = eFirstNumber->Text;
            eSecondNumber->Text = "0";
-           
+
            Root RootResult = Root();
            RootResult.FirstNumber.StringToInt(SFirstNumber);
+           RootResult.SecondNumber.StringToInt("0");
            RootResult.FirstNumber.Overturn();
            int DotPosition;
-           RootResult.Calculate();
+           //RootResult.Calculate();
 
            String Sign = "";
         /*
@@ -170,7 +171,7 @@ void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
                 Sign = ".";
         }  */
 
-        //eResult->Text = RootResult.Result.IntToString(0);
+        eResult->Text = RootResult.Result.IntToString(0);
 
                                                                          
 }

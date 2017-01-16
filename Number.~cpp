@@ -49,26 +49,6 @@ void Number::StringToInt(String SNumberDigits)
 
 }
 
-void Number::Overturn()
-{
-        int i;
-
-        int OverturnedNumberDigits[100];
-        for(int i = 0; i < 100; i++)
-        {
-                OverturnedNumberDigits[i] = 0;
-        }
-
-        for(i = 0; i < NumberDigitsLength; i++)
-        {
-                OverturnedNumberDigits[NumberDigitsLength - i - 1] = NumberDigits[i];
-        }
-
-        memcpy(NumberDigits, OverturnedNumberDigits, sizeof(NumberDigits));
-
-        //return OverturnedNumberDigits;
-}
-
 String Number::IntToString(int DotPosition)
 {
         int i;
@@ -86,3 +66,24 @@ String Number::IntToString(int DotPosition)
 
         return SNumberDigits;
 }
+
+void Number::Overturn()
+{
+        int i;
+        int OverturnedNumberDigits[100];
+
+        for(int i = 0; i < 100; i++)
+        {
+                OverturnedNumberDigits[i] = 0;
+        }
+
+        for(i = 0; i < NumberDigitsLength; i++)
+        {
+                OverturnedNumberDigits[NumberDigitsLength - i - 1] = NumberDigits[i];
+        }
+
+        memcpy(NumberDigits, OverturnedNumberDigits, sizeof(NumberDigits));
+
+        //return OverturnedNumberDigits;
+}
+
