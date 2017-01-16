@@ -88,3 +88,16 @@ void Number::Overturn()
         //return OverturnedNumberDigits;
 }
 
+void Number::ChangeSizeForZero()
+{
+   for(int i = 0; i < NumberDigitsLength; i++)
+   {
+       if(NumberDigits[i] != 0)
+       {
+          return;
+       }
+   }
+
+   NumberDigitsLength = 1;
+}
+

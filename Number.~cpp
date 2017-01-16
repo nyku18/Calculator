@@ -12,6 +12,7 @@
 
 Number::Number()
 {
+        NumberDigitsLength = 0;
         NumberSign = 1;
         for(int i = 0; i < 100; i++)
         {
@@ -85,5 +86,18 @@ void Number::Overturn()
         memcpy(NumberDigits, OverturnedNumberDigits, sizeof(NumberDigits));
 
         //return OverturnedNumberDigits;
+}
+
+void Number::ChangeSizeForZero()
+{
+   for(int i = 0; i < NumberDigitsLength; i++)
+   {
+       if(NumberDigits[i] != 0)
+       {
+          return;
+       }
+   }
+
+   NumberDigitsLength = 1;
 }
 

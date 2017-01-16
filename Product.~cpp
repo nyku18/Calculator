@@ -117,5 +117,6 @@ void Product::Calculate()
 	}
 
         Result.NumberDigitsLength = ProductLength;
+        //Result.ChangeSizeForZero();
 
 }

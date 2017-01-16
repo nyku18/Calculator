@@ -129,6 +129,12 @@ int Root::Calculate()
                         ProductResult.Calculate();
                         ProductResult.Result.Overturn();
 
+                        if(i == 0)
+                        {
+                                ProductResult.Result.ChangeSizeForZero();
+                                DifferenceResult.FirstNumber.ChangeSizeForZero();
+                        }
+
                         Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
                }
 
