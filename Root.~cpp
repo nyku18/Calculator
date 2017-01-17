@@ -22,7 +22,9 @@ int Root::Calculate()
 {
         int DotPosition = 0;
         int i;
+        int j;
         int Position;
+
         Number Reminder = Number();
         Number TwoAsNumber = Number();   // numarul 2
         TwoAsNumber.StringToInt("2");
@@ -76,46 +78,47 @@ int Root::Calculate()
 
         while((Position + 2) <= FirstNumber.NumberDigitsLength)
         {
-               DifferenceResult.FirstNumber = DifferenceResult.Result;
+                DifferenceResult.FirstNumber = DifferenceResult.Result;
 
-               if((DifferenceResult.FirstNumber.NumberDigitsLength == 1) && (DifferenceResult.FirstNumber.NumberDigits[0] == 0))
-               {
+                if((DifferenceResult.FirstNumber.NumberDigitsLength == 1) && (DifferenceResult.FirstNumber.NumberDigits[0] == 0))
+                {
                         DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength - 1] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 1];
                         DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 2];
                         DifferenceResult.FirstNumber.NumberDigitsLength += 1;
-               }
-               else
-               {
+                }
+                else
+                {
                         DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 1];
                         DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength + 1] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - Position - 2];
                         DifferenceResult.FirstNumber.NumberDigitsLength += 2;
-               }
+                }
 
-               DifferenceResult.FirstNumber.Overturn();
+                DifferenceResult.FirstNumber.Overturn();
 
-               Position = Position + 2;
+                Position = Position + 2;
 
-               i = 9;
-               NumberAsString = "";
-               NumberAsString += i;
-               iAsNumber.StringToInt(NumberAsString);
+                i = 9;
+                NumberAsString = "";
+                NumberAsString += i;
+                iAsNumber.StringToInt(NumberAsString);
                
-               Helper.NumberDigits[Helper.NumberDigitsLength] = i;
-               Helper.NumberDigitsLength++;
-               Helper.Overturn();
+                Helper.NumberDigits[Helper.NumberDigitsLength] = i;
+                Helper.NumberDigitsLength++;
+                Helper.Overturn();
 
-               // helper = 41
-               // i = 1
+                // helper = 41
+                // i = 1
 
-               ProductResult.FirstNumber = Helper;
-               ProductResult.FirstNumber.NumberDigitsLength = Helper.NumberDigitsLength;
-               ProductResult.SecondNumber = iAsNumber;
-               ProductResult.Calculate();  //ProductResult.Result = helper * i;
-               ProductResult.Result.Overturn();
+                ProductResult.FirstNumber = Helper;
+                ProductResult.FirstNumber.NumberDigitsLength = Helper.NumberDigitsLength;
+                ProductResult.SecondNumber = iAsNumber;
+                ProductResult.Calculate();  //ProductResult.Result = helper * i;
+                ProductResult.Result.Overturn();
 
-               Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
-               while(Equal < 0)
-               {
+                Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
+
+                while(Equal < 0)
+                {
                         i--;
                         NumberAsString = "";
                         NumberAsString += i;
@@ -129,8 +132,14 @@ int Root::Calculate()
                         ProductResult.Calculate();
                         ProductResult.Result.Overturn();
 
+                        if(i == 0)
+                        {
+                                ProductResult.Result.ChangeSizeForZero();
+                                DifferenceResult.FirstNumber.ChangeSizeForZero();
+                        }
+
                         Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
-               }
+                }
 
                 Result.NumberDigits[Result.NumberDigitsLength] = i;
                 Result.NumberDigitsLength++;
@@ -147,6 +156,92 @@ int Root::Calculate()
                 Helper = ProductResult.Result;
         }
 
-        //return DotPosition;
+        DotPosition = Result.NumberDigitsLength;
+
+        if(Equal == 0)
+        {
+                return DotPosition;
+        }
+
+        Result.NumberSign = Result.NumberDigitsLength;
+
+        for(j = 0; j < FirstNumber.NumberDigitsLength; j++)
+        {
+                DifferenceResult.FirstNumber = DifferenceResult.Result;
+
+                if((DifferenceResult.FirstNumber.NumberDigitsLength == 1) && (DifferenceResult.FirstNumber.NumberDigits[0] == 0))
+                {
+                        DifferenceResult.FirstNumber.NumberDigits[Position - 1] = 0;
+                        DifferenceResult.FirstNumber.NumberDigits[Position] = 0;
+                        DifferenceResult.FirstNumber.NumberDigitsLength += 1;
+                }
+                else
+                {
+                        DifferenceResult.FirstNumber.NumberDigits[Position] = 0;
+                        DifferenceResult.FirstNumber.NumberDigits[Position + 1] = 0;
+                        DifferenceResult.FirstNumber.NumberDigitsLength += 2;
+                }
+
+                DifferenceResult.FirstNumber.Overturn();
+
+                Position = Position + 2;
+
+                i = 9;
+                NumberAsString = "";
+                NumberAsString += i;
+                iAsNumber.StringToInt(NumberAsString);
+               
+                Helper.NumberDigits[Helper.NumberDigitsLength] = i;
+                Helper.NumberDigitsLength++;
+                Helper.Overturn();
+
+                ProductResult.FirstNumber = Helper;
+                ProductResult.FirstNumber.NumberDigitsLength = Helper.NumberDigitsLength;
+                ProductResult.SecondNumber = iAsNumber;
+                ProductResult.Calculate();  //ProductResult.Result = helper * i;
+                ProductResult.Result.Overturn();
+
+                Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
+
+                while(Equal < 0)
+                {
+                        i--;
+                        NumberAsString = "";
+                        NumberAsString += i;
+                        iAsNumber.StringToInt(NumberAsString);
+                        Helper.Overturn();
+                        Helper.NumberDigits[Helper.NumberDigitsLength - 1] = i;
+                        Helper.Overturn();
+
+                        ProductResult.FirstNumber = Helper;
+                        ProductResult.SecondNumber = iAsNumber;
+                        ProductResult.Calculate();
+                        ProductResult.Result.Overturn();
+
+                        if(i == 0)
+                        {
+                                ProductResult.Result.ChangeSizeForZero();
+                                DifferenceResult.FirstNumber.ChangeSizeForZero();
+                        }
+
+                        Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
+                }
+
+                Result.NumberDigits[Result.NumberDigitsLength] = i;
+                Result.NumberDigitsLength++;
+
+                DifferenceResult.SecondNumber = ProductResult.Result;
+                DifferenceResult.Calculate();
+
+                ProductResult.FirstNumber = Result;
+                ProductResult.FirstNumber.Overturn();
+                ProductResult.FirstNumber.NumberDigitsLength = Result.NumberDigitsLength;
+                ProductResult.SecondNumber = TwoAsNumber;
+                ProductResult.Calculate();
+
+                Helper = ProductResult.Result;
+        }
+
+        return DotPosition;
 
 }

@@ -163,15 +163,14 @@ void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
            RootResult.Calculate();
 
            String Sign = "";
-        /*
-        if(RootResult.Result.NumberSign != 0)
-        {
+
+           if(RootResult.Result.NumberSign != 0)
+           {
                 Sign = ".";
-        }  */
+           }
 
-        eResult->Text = RootResult.Result.IntToString(0);
+           eResult->Text = RootResult.Result.IntToString(DotPosition);
 
-                                                                         
 }
 //---------------------------------------------------------------------------
 

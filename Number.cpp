@@ -90,14 +90,14 @@ void Number::Overturn()
 
 void Number::ChangeSizeForZero()
 {
-   for(int i = 0; i < NumberDigitsLength; i++)
-   {
-       if(NumberDigits[i] != 0)
-       {
-          return;
-       }
-   }
+        for(int i = 0; i < NumberDigitsLength; i++)
+        {
+                if(NumberDigits[i] != 0)
+                {
+                        return;
+                }
+        }
 
-   NumberDigitsLength = 1;
+        NumberDigitsLength = 1;
 }
 

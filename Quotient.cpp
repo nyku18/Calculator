@@ -143,8 +143,6 @@ int Quotient::Calculate()
 
         if(Equal == -1 && FirstNumber.NumberDigitsLength == 1 && FirstNumber.NumberDigits[0] == 0)
         {
-
-
                 while(Result.NumberDigits[0] == 0)
 	        {
 		        for (i = 0; i < QuotientLength - 1; i++)
