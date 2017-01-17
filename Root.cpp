@@ -62,6 +62,7 @@ int Root::Calculate()
 
 
         DifferenceResult.SecondNumber = Reminder;
+        DifferenceResult.SecondNumber.Overturn();
         DifferenceResult.Calculate();
 
 
