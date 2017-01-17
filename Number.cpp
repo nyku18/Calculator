@@ -101,3 +101,22 @@ void Number::ChangeSizeForZero()
         NumberDigitsLength = 1;
 }
 
+void Number::RemoveFirstZeros()
+{
+        int i = 0;
+        int Contor = 0;
+        for(i = NumberDigitsLength - 1; i >= 0; i--)
+        {
+                if(NumberDigits[i] != 0)
+                {
+                        break;
+                }
+                else
+                {
+                        Contor++;
+                }
+        }
+
+        NumberDigitsLength -= Contor;
+}
+

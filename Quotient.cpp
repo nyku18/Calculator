@@ -155,6 +155,8 @@ int Quotient::Calculate()
                 return DotPosition;
         }
 
+        FirstNumber.RemoveFirstZeros();
+
         //dupa virgula
 
         DotPosition = QuotientLength;
@@ -184,6 +186,7 @@ int Quotient::Calculate()
                         {
                                 FirstNumber.NumberDigits[i] = FirstNumber.NumberDigits[i-1];
                         }
+
                         FirstNumber.NumberDigits[0] = 0;
 
                         Done = 1;

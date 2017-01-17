@@ -18,6 +18,7 @@ class Number
                 void Overturn();
                 String IntToString(int DotPosition);
                 void ChangeSizeForZero();
+                void RemoveFirstZeros();
         private:
                 char* StringToChar(String SNumberDigits);
                 int* CharToInt(char* CNumberDigits);
