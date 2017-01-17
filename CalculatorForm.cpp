@@ -112,13 +112,6 @@ void __fastcall TfCalculator::btnDivideClick(TObject *Sender)
         int DotPosition;
         DotPosition = QuotientResult.Calculate();
 
-        String Sign = "";
-
-        if(QuotientResult.Result.NumberSign != 0)
-        {
-                Sign = ".";
-        }
-
         eResult->Text = QuotientResult.Result.IntToString(DotPosition);
 
 }
@@ -139,13 +132,6 @@ void __fastcall TfCalculator::btnInverseClick(TObject *Sender)
         int DotPosition;
         DotPosition = InvertedResult.Calculate();
 
-        String Sign = "";
-
-        if(InvertedResult.Result.NumberSign != 0)
-        {
-                Sign = ".";
-        }
-
         eResult->Text = InvertedResult.Result.IntToString(DotPosition);
 
 }
@@ -161,13 +147,6 @@ void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
            RootResult.FirstNumber.Overturn();
            int DotPosition;
            DotPosition = RootResult.Calculate();
-
-           String Sign = "";
-
-           if(RootResult.Result.NumberSign != 0)
-           {
-                Sign = ".";
-           }
 
            eResult->Text = RootResult.Result.IntToString(DotPosition);
 

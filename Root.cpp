@@ -25,7 +25,6 @@ int Root::Calculate()
         int j;
         int Position;
 
-        Number Reminder = Number();
         Number TwoAsNumber = Number();   // numarul 2
         TwoAsNumber.StringToInt("2");
 
@@ -46,7 +45,6 @@ int Root::Calculate()
         ProductResult.FirstNumber = Result;
         ProductResult.SecondNumber = Result;
         ProductResult.Calculate();
-        Reminder = ProductResult.Result;
 
         DifferenceResult.FirstNumber.NumberDigits[0] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - 2];
         DifferenceResult.FirstNumber.NumberDigits[1] = FirstNumber.NumberDigits[FirstNumber.NumberDigitsLength - 1];
@@ -61,7 +59,7 @@ int Root::Calculate()
         }
 
 
-        DifferenceResult.SecondNumber = Reminder;
+        DifferenceResult.SecondNumber = ProductResult.Result;
         DifferenceResult.SecondNumber.Overturn();
         DifferenceResult.Calculate();
 
@@ -73,7 +71,7 @@ int Root::Calculate()
         Number Helper = Number();
         Helper = ProductResult.Result;
 
-        Number iAsNumber = Number();   // numarul 2
+        Number iAsNumber = Number();
         int Equal;
         String NumberAsString = "";
 
@@ -107,13 +105,10 @@ int Root::Calculate()
                 Helper.NumberDigitsLength++;
                 Helper.Overturn();
 
-                // helper = 41
-                // i = 1
-
                 ProductResult.FirstNumber = Helper;
                 ProductResult.FirstNumber.NumberDigitsLength = Helper.NumberDigitsLength;
                 ProductResult.SecondNumber = iAsNumber;
-                ProductResult.Calculate();  //ProductResult.Result = helper * i;
+                ProductResult.Calculate();
                 ProductResult.Result.Overturn();
 
                 Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
@@ -158,6 +153,7 @@ int Root::Calculate()
         }
 
         DifferenceResult.Result.ChangeSizeForZero();
+        
         if((DifferenceResult.Result.NumberDigitsLength == 1) && (DifferenceResult.Result.NumberDigits[0] == 0))
         {
                 return DotPosition;
@@ -171,8 +167,7 @@ int Root::Calculate()
 
         for(j = 0; j < FirstNumber.NumberDigitsLength; j++)
         {
-                DifferenceResult.FirstNumber = DifferenceResult.Result;
-
+                DifferenceResult.FirstNumber = DifferenceResult.Result;  
 
                 if((DifferenceResult.FirstNumber.NumberDigitsLength == 1) && (DifferenceResult.FirstNumber.NumberDigits[0] == 0))
                 {
@@ -202,7 +197,7 @@ int Root::Calculate()
                 ProductResult.FirstNumber = Helper;
                 ProductResult.FirstNumber.NumberDigitsLength = Helper.NumberDigitsLength;
                 ProductResult.SecondNumber = iAsNumber;
-                ProductResult.Calculate();  //ProductResult.Result = helper * i;
+                ProductResult.Calculate();
                 ProductResult.Result.Overturn();
 
                 Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);
