@@ -156,32 +156,35 @@ int Root::Calculate()
                 Helper = ProductResult.Result;
         }
 
-        DotPosition = Result.NumberDigitsLength;
-
-        if(Equal == 0)
+        DifferenceResult.Result.ChangeSizeForZero();
+        if((DifferenceResult.Result.NumberDigitsLength == 1) && (DifferenceResult.Result.NumberDigits[0] == 0))
         {
                 return DotPosition;
+        }
+        else
+        {
+                DotPosition = Result.NumberDigitsLength;
         }
 
         Result.NumberSign = Result.NumberDigitsLength;
 
-        for(j = 0; j <= FirstNumber.NumberDigitsLength; j++)
+        for(j = 0; j < FirstNumber.NumberDigitsLength; j++)
         {
                 DifferenceResult.FirstNumber = DifferenceResult.Result;
 
+
                 if((DifferenceResult.FirstNumber.NumberDigitsLength == 1) && (DifferenceResult.FirstNumber.NumberDigits[0] == 0))
                 {
-                        DifferenceResult.FirstNumber.NumberDigits[Position - 1] = 0;
-                        DifferenceResult.FirstNumber.NumberDigits[Position] = 0;
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength - 1] = 0;
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength] = 0;
                         DifferenceResult.FirstNumber.NumberDigitsLength += 1;
                 }
                 else
                 {
-                        DifferenceResult.FirstNumber.NumberDigits[Position] = 0;
-                        DifferenceResult.FirstNumber.NumberDigits[Position + 1] = 0;
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength] = 0;
+                        DifferenceResult.FirstNumber.NumberDigits[DifferenceResult.FirstNumber.NumberDigitsLength + 1] = 0;
                         DifferenceResult.FirstNumber.NumberDigitsLength += 2;
                 }
-
                 DifferenceResult.FirstNumber.Overturn();
 
                 Position = Position + 2;

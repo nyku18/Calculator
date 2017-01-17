@@ -160,7 +160,7 @@ void __fastcall TfCalculator::btnSquareRootClick(TObject *Sender)
            RootResult.FirstNumber.StringToInt(SFirstNumber);
            RootResult.FirstNumber.Overturn();
            int DotPosition;
-           RootResult.Calculate();
+           DotPosition = RootResult.Calculate();
 
            String Sign = "";
 
