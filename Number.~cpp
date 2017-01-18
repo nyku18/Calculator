@@ -85,7 +85,6 @@ void Number::Overturn()
 
         memcpy(NumberDigits, OverturnedNumberDigits, sizeof(NumberDigits));
 
-        //return OverturnedNumberDigits;
 }
 
 void Number::ChangeSizeForZero()

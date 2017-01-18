@@ -116,6 +116,6 @@ void Number::RemoveFirstZeros()
                 }
         }
 
-        NumberDigitsLength -= Contor;
+        NumberDigitsLength = NumberDigitsLength - Contor;
 }
 
