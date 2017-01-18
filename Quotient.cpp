@@ -24,6 +24,7 @@ int Quotient::Calculate()
         int DotPosition = 0;
         int Aux;
         int Equal;
+        int Contor;
         int Done;
         int SecondNumberBigger = 0;
 
@@ -157,8 +158,6 @@ int Quotient::Calculate()
 
         FirstNumber.RemoveFirstZeros();
 
-        //dupa virgula
-
         DotPosition = QuotientLength;
         if(SecondNumberBigger == 1)
         {
@@ -255,7 +254,7 @@ int Quotient::Calculate()
 
                 }
 
-                int Contor = 0;
+                Contor = 0;
                 for(i = 0; i < FirstNumber.NumberDigitsLength; i++)
                 {
                         if(FirstNumber.NumberDigits[i] == 0)

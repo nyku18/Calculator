@@ -24,12 +24,17 @@ int Root::Calculate()
         int i;
         int j;
         int Position;
+        int Equal;
 
-        Number TwoAsNumber = Number();   // numarul 2
+        Number TwoAsNumber = Number();
         TwoAsNumber.StringToInt("2");
+
+        Number iAsNumber = Number();
 
         Difference DifferenceResult = Difference();
         Product ProductResult = Product();
+
+        Number Helper = Number();
 
         if(FirstNumber.NumberDigitsLength % 2 == 1)
         {
@@ -68,11 +73,8 @@ int Root::Calculate()
         ProductResult.SecondNumber = TwoAsNumber;
         ProductResult.Calculate();
 
-        Number Helper = Number();
         Helper = ProductResult.Result;
 
-        Number iAsNumber = Number();
-        int Equal;
         String NumberAsString = "";
 
         while((Position + 2) <= FirstNumber.NumberDigitsLength)

@@ -155,6 +155,8 @@ int Quotient::Calculate()
                 return DotPosition;
         }
 
+        FirstNumber.RemoveFirstZeros();
+
         //dupa virgula
 
         DotPosition = QuotientLength;

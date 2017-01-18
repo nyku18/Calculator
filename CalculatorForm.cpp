@@ -34,7 +34,7 @@ void __fastcall TfCalculator::btnAddClick(TObject *Sender)
         String SFirstNumber = eFirstNumber->Text;
         String SSecondNumber = eSecondNumber->Text;
 
-        Sum SumResult = Sum();     //creez obiectul in memorie
+        Sum SumResult = Sum();
 
         SumResult.FirstNumber.StringToInt(SFirstNumber);
         SumResult.SecondNumber.StringToInt(SSecondNumber);

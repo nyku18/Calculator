@@ -197,7 +197,7 @@ int Root::Calculate()
                 ProductResult.FirstNumber = Helper;
                 ProductResult.FirstNumber.NumberDigitsLength = Helper.NumberDigitsLength;
                 ProductResult.SecondNumber = iAsNumber;
-                ProductResult.Calculate();  //ProductResult.Result = helper * i;
+                ProductResult.Calculate();
                 ProductResult.Result.Overturn();
 
                 Equal = Compare(DifferenceResult.FirstNumber, ProductResult.Result);

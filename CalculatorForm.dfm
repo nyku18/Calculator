@@ -91,8 +91,8 @@ object fCalculator: TfCalculator
   object btnExit: TButton
     Left = 536
     Top = 264
-    Width = 75
-    Height = 25
+    Width = 83
+    Height = 33
     Caption = 'EXIT'
     TabOrder = 9
     OnClick = btnExitClick
